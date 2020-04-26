@@ -2,9 +2,9 @@ const express = require('express')
 const path = require('path');
 const app = express();
 
-require('./app/mongo');
+require('./mongo');
 
-const { findOneBook } = require('./app/mongo/book-fn');
+const { findOneBook } = require('./mongo/book-fn');
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
