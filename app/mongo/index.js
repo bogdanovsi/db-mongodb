@@ -1,5 +1,4 @@
-const { Book } = require('../models');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mvc-mongo', {useNewUrlParser: true, useUnifiedTopology: true });
 
-module.exports.findOneBook = async function findOneBook(name) {  
-    return await Book.find({name});
-}
+module.exports = mongoose;
