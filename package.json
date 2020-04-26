@@ -1,0 +1,28 @@
+{
+  "name": "bogdanovsi",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "git push heroku master",
+    "open": "heroku open"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-sample"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "bogdanovsi",
+  "license": "MIT",
+  "devDependencies": {
+    "mongoose": "^5.9.10"
+  }
+}
