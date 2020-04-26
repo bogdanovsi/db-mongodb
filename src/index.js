@@ -10,7 +10,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.sendFile(path.join(__dirname, 'public', 'home', 'home.html'))
+  response.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 app.get('/book/:name', async function(request, response) {
