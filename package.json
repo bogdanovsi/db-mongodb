@@ -2,9 +2,9 @@
   "name": "bogdanovsi",
   "version": "0.0.1",
   "description": "",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
+    "start": "node index.js",
     "deploy": "git push heroku master",
     "open": "heroku open"
   },
