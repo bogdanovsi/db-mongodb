@@ -1,10 +1,14 @@
 const express = require('express');
 const book = express.Router();
 
-const { findOneBook } = require('../mongo/book-fn');
+const { Book } = require('../models');
+
+book.get('/all', async function(req, res) {
+    res.send(await Book.find());
+})
 
 book.get('/:name', async function(req, res) {
-    res.send(await findOneBook(request.params.name));
+    res.send(await Book.findOneBook(request.params.name));
 })
 
 module.exports = book;

@@ -1,5 +1,5 @@
 (function () {    
-    const render = () => {    
+    const render = ({ route }) => {        
         let input = document.createElement('input');
         input.id = 'inp';
         input.type = 'text';
@@ -13,7 +13,14 @@
         form.onsubmit = (ev) => {
             ev.preventDefault();
 
-            fetch(`book/${input.value}`)
+            fetch(`${route}/${input.value}`,
+                {
+                    headers: {
+                    'Content-Type': 'application/json',
+                    }
+                }
+            )
+            .then(res => res.json())
             .then(res => output.textContent = JSON.stringify(res))
             .catch(err => console.error(err));
         }
@@ -22,12 +29,17 @@
         
         let output = document.createElement('p');
         
+        let title = document.createElement('p');
+        title.textContent = route;
+
         let fragment = document.createDocumentFragment();
+        fragment.appendChild(title);
         fragment.appendChild(form);
         fragment.appendChild(output);
 
         return fragment;
     }
 
-    document.getElementById('root').appendChild(render());
+    document.getElementById('root').appendChild(render({ route: 'book' }));
+    document.getElementById('root').appendChild(render({ route: 'writer' }));
 })();

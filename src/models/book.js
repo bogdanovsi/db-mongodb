@@ -16,6 +16,9 @@ const Book = new Schema(
 );
 
 Book.method({});
-Book.static({});
+
+Book.static.findOneBook = async function findOneBook(name) {  
+    return await Book.find({name});
+}
 
 module.exports = mongoose.model('Book', Book);
