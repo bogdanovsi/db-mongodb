@@ -6,23 +6,27 @@
 
         let btn = document.createElement('button');
         btn.id = 'bt';
-        btn.type = 'submit';
+        btn.type = 'button';
         btn.textContent = 'Test it';
 
-        let form = document.createElement('form');
-        form.onsubmit = (ev) => {
+        let form = document.createElement('div');
+        btn.onclick = (ev) => {
             ev.preventDefault();
 
             fetch(`${route}/${input.value}`,
                 {
                     headers: {
-                    'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
                     }
                 }
             )
             .then(res => res.json())
-            .then(res => output.textContent = JSON.stringify(res))
-            .catch(err => console.error(err));
+            .then(res => {
+                console.log(res);
+
+                output.textContent = JSON.stringify(res)
+            })
         }
         form.appendChild(input);
         form.appendChild(btn);
@@ -41,5 +45,5 @@
     }
 
     document.getElementById('root').appendChild(render({ route: 'book' }));
-    document.getElementById('root').appendChild(render({ route: 'writer' }));
+    document.getElementById('root').appendChild(render({ route: 'writers' }));
 })();

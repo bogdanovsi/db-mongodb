@@ -21,4 +21,8 @@ Book.static.findOneBook = async function findOneBook(name) {
     return await Book.find({name});
 }
 
+Book.static.findAllRef = async function findAllRef() {
+    return await Book.find({}).populate('writer');
+}
+
 module.exports = mongoose.model('Book', Book);

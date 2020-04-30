@@ -8,11 +8,11 @@ writer.get('/create', async function(req, res) {
 })
 
 writer.get('/all', async function(req, res) {
-    res.send(await Writer.find());
+    res.send(await Writer.find({}));
 })
 
 writer.get('/:name', async function(req, res) {
-    res.send(await Writer.findOneBook(request.params.name));
+    res.send(await Writer.find({ name: req.params.name }));
 })
 
 module.exports = writer;
