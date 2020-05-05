@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd client && set PORT=3000 && npm run start\" \"cd server && set PORT=3001 && npm run start\"",
-    "deploy": "git push heroku master",
-    "open": "heroku open"
+    "start": "node index.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
