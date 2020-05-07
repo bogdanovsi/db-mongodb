@@ -15,7 +15,23 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
-            }
+            },
+            { 
+                test: /\.(le|c)ss$/,
+                use: [ 
+                    'style-loader',
+                    'css-loader', 
+                    'less-loader'
+                ],
+            },
         ]
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx', '.css']
+    },
+    devtool: 'source-map',
+    watchOptions: {
+        ignored: /node_modules/,
+        aggregateTimeout: 400
     }
 }
