@@ -24,6 +24,12 @@ module.exports = {
                     'less-loader'
                 ],
             },
+            {
+                test: /\.(ico|png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
+                ],
+            },
         ]
     },
     resolve: {
