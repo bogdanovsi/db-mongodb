@@ -5,17 +5,15 @@ export default class MongoInput extends Component {
         super(props);
 
         this.state = {
-            value: '',
             output: ''
         }
+
+        this.refInput = React.createRef();
     }
 
-    handleChange(ev) {
-        this.setState({ value: ev.target.value })
-    }
-
-    handleClick() {
-        fetch(`${this.props.route}/${this.state.value}`,
+    handleClick(ev) {
+        ev.preventDefault();
+        fetch(`${this.props.route}/${this.refInput.current.value}`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -23,24 +21,22 @@ export default class MongoInput extends Component {
                 }
             }
         )
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);
-            this.setState({
-                output: JSON.stringify(res),
-                value: '',
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    output: JSON.stringify(res)
+                });
             });
-        });
     }
-   
+
     render() {
-      return (
-         <div>
-            <p>{this.props.route}</p>
-            <input value={this.state.value} onChange={this.handleChange.bind(this)} type="text"/>
-            <button onClick={this.handleClick.bind(this)}>Test it</button>
-            <p>{this.state.output}</p>
-         </div>
-      );
-   }
+        return (
+            <form>
+                <p>{this.props.route}</p>
+                <input ref={this.refInput} type="text" />
+                <button type="submit" onClick={this.handleClick.bind(this)}>Test it</button>
+                <p>{this.state.output}</p>
+            </form>
+        );
+    }
 }
