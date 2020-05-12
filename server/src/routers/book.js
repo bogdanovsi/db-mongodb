@@ -11,4 +11,4 @@ book.get('/:name', async function(req, res) {
     res.send(await Book.findOneBook(req.params.name));
 })
 
-module.exports = book; 
+module.exports = book;

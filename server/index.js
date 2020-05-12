@@ -12,7 +12,7 @@ const staicFiles = express.static(path.join(__dirname, '../client/build'));
 app.use(staicFiles);
 
 // routers
-app.use('/book', require('./src/routers/book.js'));
+app.use('/books', require('./src/routers/book.js'));
 app.use('/writers', require('./src/routers/writer.js'));
 
 // another routers

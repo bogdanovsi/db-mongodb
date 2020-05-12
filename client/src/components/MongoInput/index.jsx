@@ -1,4 +1,16 @@
 import React, { Component } from 'react';
+import {
+    Form,
+    Input,
+    Button,
+    Radio,
+    Select,
+    Cascader,
+    DatePicker,
+    InputNumber,
+    TreeSelect,
+    Switch,
+  } from 'antd';
 
 export default class MongoInput extends Component {
     constructor(props) {
@@ -8,12 +20,11 @@ export default class MongoInput extends Component {
             output: ''
         }
 
-        this.refInput = React.createRef();
+        this.onFinish = this.onFinish.bind(this);
     }
 
-    handleClick(ev) {
-        ev.preventDefault();
-        fetch(`${this.props.route}/${this.refInput.current.value}`,
+    onFinish(values) {
+        fetch(`${this.props.route}/${values.searchValue}`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -31,12 +42,28 @@ export default class MongoInput extends Component {
 
     render() {
         return (
-            <form>
-                <p>{this.props.route}</p>
-                <input ref={this.refInput} type="text" />
-                <button type="submit" onClick={this.handleClick.bind(this)}>Test it</button>
+            <>
+                <Form 
+                    layout="horizontal"
+                    onFinish={this.onFinish}
+                >
+                    <Form.Item 
+                        name="searchValue" 
+                        label={this.props.route}
+                        rules={[
+                            {
+                                required: true,
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button htmlType="submit">Test it</Button>
+                    </Form.Item>
+                </Form>
                 <p>{this.state.output}</p>
-            </form>
+            </>
         );
     }
 }

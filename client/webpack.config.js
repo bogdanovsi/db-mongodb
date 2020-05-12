@@ -18,11 +18,18 @@ module.exports = {
                 }
             },
             { 
-                test: /\.(le|c)ss$/,
+                test: /\.css$/,
                 use: [ 
                     'style-loader',
-                    'css-loader', 
-                    'less-loader'
+                    'css-loader',
+                ],
+            },
+            { 
+                test: /\.less$/,
+                use: [ 
+                    'style-loader',
+                    'css-loader',
+                    'less-loader',
                 ],
             },
             {
@@ -42,7 +49,7 @@ module.exports = {
         }),
     ],
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.css']
+        extensions: ['*', '.js', '.jsx', '.less', '.css']
     },
     devtool: 'source-map',
     watchOptions: {
