@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import BaseTable from '../BaseTable';
 
-class Books extends Component {
+class Contracts extends Component {
     render() {
         return (
             <>
-                <BaseTable route={"books"} />
+                <BaseTable route={"contracts"} />
             </>
         )
     }
 }
 
-export default Books;
+export default Contracts;

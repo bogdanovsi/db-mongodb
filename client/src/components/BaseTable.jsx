@@ -34,7 +34,7 @@ class BaseTable extends Component {
         )
         .then(res => res.json())
         .then(res => this.setState({
-                dataSource: res,
+                dataSource: res.map((item, i) => { return { ...item, key: i } }),
                 columns: this.transformDataToColumns(res)
             })
         )
@@ -43,7 +43,7 @@ class BaseTable extends Component {
     render() {
         return (
             <>
-                <Table dataSource={this.state.dataSource} columns={this.state.columns} />; 
+                <Table dataSource={this.state.dataSource} columns={this.state.columns} />
             </>
         );
     }

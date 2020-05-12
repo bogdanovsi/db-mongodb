@@ -16,4 +16,6 @@ app.use('/books', require('./src/routers/book.js'));
 app.use('/writers', require('./src/routers/writer.js'));
 
 // another routers
-app.get('/*', staicFiles)
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
