@@ -43,7 +43,7 @@ class BaseTable extends Component {
     render() {
         return (
             <>
-                <Table dataSource={this.state.dataSource} columns={this.columns} />; 
+                <Table dataSource={this.state.dataSource} columns={this.state.columns} />; 
             </>
         );
     }
