@@ -6,9 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './stylesheets/index.less';
 
 ReactDOM.render((
-    <BrowserRouter>
-        <Switch>
-            <Route path="/" component={App} />
-        </Switch>
-    </BrowserRouter>
+    <>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </>
 ), document.getElementById('root'));

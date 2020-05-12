@@ -3,8 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import history from '../history';
 import MongoInput from './MongoInput';
 import Menu from './Menu';
-import Home from './pages/Home';
-import Books from './pages/Books';
+import RouterList from './RouterList';
 
 const styles = {
    container: {
@@ -21,12 +20,7 @@ export default class App extends Component {
                   <Menu/>
                </div>
                <div style={{width: '90vw'}}>
-                  <Router history={history}>
-                     <Switch>
-                        <Route path="/" component={Home} />
-                        <Route path="/books" component={Books} />
-                     </Switch>
-                  </Router>
+                  <RouterList />
                </div>
             </div>
          </>
