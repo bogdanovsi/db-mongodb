@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Button } from 'antd';
-import history from '../history';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
