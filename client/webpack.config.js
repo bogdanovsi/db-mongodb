@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -17,17 +18,38 @@ module.exports = {
                 }
             },
             { 
-                test: /\.(le|c)ss$/,
+                test: /\.css$/,
                 use: [ 
                     'style-loader',
-                    'css-loader', 
-                    'less-loader'
+                    'css-loader',
+                ],
+            },
+            { 
+                test: /\.less$/,
+                use: [ 
+                    'style-loader',
+                    'css-loader',
+                    'less-loader',
+                ],
+            },
+            {
+                test: /\.(ico|png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
                 ],
             },
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'MongoDb',
+            filename: path.resolve(__dirname, 'build', 'index.html'),
+            template: path.join('public', 'index.html'),
+            favicon: path.join('public', 'favicon.ico')
+        }),
+    ],
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.css']
+        extensions: ['*', '.js', '.jsx', '.less', '.css']
     },
     devtool: 'source-map',
     watchOptions: {

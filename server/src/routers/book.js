@@ -8,7 +8,7 @@ book.get('/all', async function(req, res) {
 })
 
 book.get('/:name', async function(req, res) {
-    res.send(await Book.findOneBook(request.params.name));
+    res.send(await Book.findOneBook(req.params.name));
 })
 
-module.exports = book; 
+module.exports = book;

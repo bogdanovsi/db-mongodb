@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
+import {
+    Form,
+    Input,
+    Button,
+    Radio,
+    Select,
+    Cascader,
+    DatePicker,
+    InputNumber,
+    TreeSelect,
+    Switch,
+  } from 'antd';
 
 export default class MongoInput extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            value: '',
             output: ''
         }
+
+        this.onFinish = this.onFinish.bind(this);
     }
 
-    handleChange(ev) {
-        this.setState({ value: ev.target.value })
-    }
-
-    handleClick() {
-        fetch(`${this.props.route}/${this.state.value}`,
+    onFinish(values) {
+        fetch(`${this.props.route}/${values.searchValue}`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -23,24 +32,38 @@ export default class MongoInput extends Component {
                 }
             }
         )
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);
-            this.setState({
-                output: JSON.stringify(res),
-                value: '',
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    output: JSON.stringify(res)
+                });
             });
-        });
     }
-   
+
     render() {
-      return (
-         <div>
-            <p>{this.props.route}</p>
-            <input value={this.state.value} onChange={this.handleChange.bind(this)} type="text"/>
-            <button onClick={this.handleClick.bind(this)}>Test it</button>
-            <p>{this.state.output}</p>
-         </div>
-      );
-   }
+        return (
+            <>
+                <Form 
+                    layout="horizontal"
+                    onFinish={this.onFinish}
+                >
+                    <Form.Item 
+                        name="searchValue" 
+                        label={this.props.route}
+                        rules={[
+                            {
+                                required: true,
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button htmlType="submit">Test it</Button>
+                    </Form.Item>
+                </Form>
+                <p>{this.state.output}</p>
+            </>
+        );
+    }
 }
