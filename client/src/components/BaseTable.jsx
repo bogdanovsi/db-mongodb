@@ -34,7 +34,10 @@ class BaseTable extends Component {
                 }
             }
         )
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) { throw res; }
+            return res.json();
+        })
         .then(res => this.setState({
                 dataSource: res.map((item, i) => { return { ...item, key: i } }),
                 columns: this.transformDataToColumns(res)
