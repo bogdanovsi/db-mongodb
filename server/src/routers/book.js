@@ -21,7 +21,7 @@ book.get('/:name', async function(req, res) {
     res.send(await Book.findOneBook(req.params.name));
 })
 
-book.post('', async function(req, res) {
+book.post('/', async function(req, res) {
     const book = new Book({
         book_cipher: req.body.book_cipher,
         name: req.body.name,
@@ -35,7 +35,7 @@ book.post('', async function(req, res) {
     res.send(book)
 })
 
-book.delete('', async function(req, res) {
+book.delete('/', async function(req, res) {
     const key = Object.keys(req.query).find(key => possibleKeys.includes(key))
     Book.deleteOne({ [key] : req.query[key] }, (err,result) => {
         if(err) {

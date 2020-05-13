@@ -18,7 +18,7 @@ const tailLayout = {
 
 const AddBookForm = () => {
   const onFinish = values => {    
-    fetch('/post', {
+    fetch('/books/', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'
