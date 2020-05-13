@@ -14,13 +14,15 @@ class BaseTable extends Component {
     transformDataToColumns(data) {
         if(!data) return [];
 
-        return Object.keys(data[0]).map((key, i) => {
-            return {
-                title: key,
-                dataIndex: key,
-                key: i
-            }        
-        });
+        return Object.keys(data[0])
+            .filter((key) => key !== '_id')
+            .map((key, i) => {
+                return {
+                    title: key,
+                    dataIndex: key,
+                    key: i
+                } 
+            });
     }
     
     componentWillMount() {    
