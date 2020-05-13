@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import { Table, Popconfirm } from 'antd';
+import DeleteCell from './DeleteCell';
 
 class BaseTable extends Component {
     constructor(props) {
@@ -17,9 +18,10 @@ class BaseTable extends Component {
             dataIndex: 'operation',
             render: (text, record) =>
               this.state.dataSource.length >= 1 ? (
-                <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-                  <a>Delete</a>
-                </Popconfirm>
+                <DeleteCell 
+                    record={record}
+                    onConfirm={() => this.handleDelete(record.key)}
+                />
               ) : null,
         }
     ]
