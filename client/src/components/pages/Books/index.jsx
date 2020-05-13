@@ -16,7 +16,7 @@ class Books extends Component {
             <>
                 <h2 style={{textAlign: 'center'}}>Books</h2>
                 <div style={container}>
-                    <ModalButton tableType={'Add new book'} formComponent={AddBookForm} />
+                    <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"books"} />
             </>

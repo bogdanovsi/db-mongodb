@@ -16,7 +16,7 @@ class Customers extends Component {
             <>
                 <h2 style={{textAlign: 'center'}}>Customers</h2>
                 <div style={container}>
-                    <ModalButton tableType={'Add new customer'} formComponent={AddCustomer} />
+                    <ModalButton tableType={'Add new customer'} formComponent={AddCustomer} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"customers"} />
             </>

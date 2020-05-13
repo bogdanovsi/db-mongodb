@@ -16,7 +16,7 @@ class Orders extends Component {
             <>
                 <h2 style={{textAlign: 'center'}}>Orders</h2>
                 <div style={container}>
-                    <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} />
+                    <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"orders"} />
             </>

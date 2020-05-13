@@ -34,7 +34,7 @@ export default class ModalButton extends React.Component {
     return (
       <div style={container}>
         <Button type="primary" onClick={this.showModal}>
-          Add
+          {this.props.actionType}
         </Button>
         <Modal
           title={this.props.tableType}

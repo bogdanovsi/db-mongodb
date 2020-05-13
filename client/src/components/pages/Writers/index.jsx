@@ -16,7 +16,7 @@ class Writers extends Component {
             <>
                 <h2 style={{textAlign: 'center'}}>Writers</h2>
                 <div style={container}>
-                    <ModalButton tableType={'Add new order'} formComponent={AddWriter} />
+                    <ModalButton tableType={'Add new order'} formComponent={AddWriter} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"writers"} />
             </>
