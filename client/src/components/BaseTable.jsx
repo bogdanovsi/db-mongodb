@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Table } from 'antd';
+import { Table, Popconfirm } from 'antd';
 
 class BaseTable extends Component {
     constructor(props) {
@@ -9,6 +9,30 @@ class BaseTable extends Component {
             dataSource: [],
             columns: []
         }
+    }
+    
+    operations = [
+        {
+            title: 'operation',
+            dataIndex: 'operation',
+            render: (text, record) =>
+              this.state.dataSource.length >= 1 ? (
+                <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
+                  <a>Delete</a>
+                </Popconfirm>
+              ) : null,
+        }
+    ]
+
+    handleDelete = key => {
+        const dataSource = [...this.state.dataSource];
+        this.setState({
+            dataSource: dataSource.filter(item => item.key !== key),
+        });
+    };
+
+    addedOperations(columns) {
+        return columns.concat(this.operations)
     }
 
     transformDataToColumns(data) {
@@ -40,7 +64,7 @@ class BaseTable extends Component {
         })
         .then(res => this.setState({
                 dataSource: res.map((item, i) => { return { ...item, key: i } }),
-                columns: this.transformDataToColumns(res)
+                columns: this.addedOperations(this.transformDataToColumns(res))
             })
         )
     }
