@@ -26,9 +26,20 @@ class BaseTable extends Component {
 
     handleDelete = key => {
         const dataSource = [...this.state.dataSource];
-        this.setState({
-            dataSource: dataSource.filter(item => item.key !== key),
-        });
+        let row = dataSource.find(item => item.key === key);
+        fetch(`${this.props.route}?_id=${row._id}`, 
+        {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }  
+        }).then(res => {
+            if(res.ok) { 
+                this.setState({
+                    dataSource: dataSource.filter(item => item.key !== key),
+                });
+            }
+        })
     };
 
     addedOperations(columns) {
