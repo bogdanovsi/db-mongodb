@@ -4,6 +4,7 @@ const book = express.Router();
 const { Book } = require('../models');
 
 const possibleKeys = [
+    "_id",
     "book_cipher",
     "name",
     "circulation",
