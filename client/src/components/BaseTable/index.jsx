@@ -2,6 +2,8 @@ import React, { Component, useState } from 'react';
 import { Table, Popconfirm } from 'antd';
 import DeleteCell from './DeleteCell';
 
+const PRIVATE_FLAG = '_';
+
 class BaseTable extends Component {
     constructor(props) {
         super(props);
@@ -42,7 +44,7 @@ class BaseTable extends Component {
                     dataSource: dataSource.filter(item => item.key !== key),
                 });
             } else {
-                
+
             }
         })
     };
@@ -53,9 +55,9 @@ class BaseTable extends Component {
 
     transformDataToColumns(data) {
         if(!data) return [];
-
+        
         return Object.keys(data[0])
-            .filter((key) => key !== '_id')
+            .filter((key) => key[0] !== PRIVATE_FLAG)
             .map((key, i) => {
                 return {
                     title: key,

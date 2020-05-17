@@ -1,18 +1,19 @@
 const express = require('express');
-const writer = express.Router();
-
+const router = express.Router();
+const MongooseCore = require('./mongoose-core');
 const { Writer } = require('../models');
 
-writer.get('/create', async function(req, res) {
-    res.send(await Writer.loadDB());
-})
+const possibleKeys = [
+    "_id"
+];
 
-writer.get('/all', async function(req, res) {
-    res.send(await Writer.find({}));
-})
+MongooseCore.bindDefaultGetAll(router, '/all', Writer);
+MongooseCore.bindDefaultDeleteAll(router, '/all', Writer);
+MongooseCore.bindDefaultCreateModel(router, '/', Writer);
+MongooseCore.bindDefaultDeleteByKeys(router, '/', Writer, possibleKeys);
 
-writer.get('/:name', async function(req, res) {
+router.get('/:name', async function(req, res) {
     res.send(await Writer.find({ name: req.params.name }));
 })
 
-module.exports = writer;
+module.exports = router;
