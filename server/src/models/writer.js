@@ -100,3 +100,4 @@ Writer.static.loadDB = () => {
 }
 
 module.exports = mongoose.model('Writer', Writer);
+module.exports.Writer = Writer;
