@@ -16,6 +16,7 @@ MongooseCore.bindDefaultGetAll(router, '/all', Customer);
 MongooseCore.bindDefaultDeleteAll(router, '/all', Customer);
 MongooseCore.bindDefaultCreateModel(router, '/', Customer);
 MongooseCore.bindDefaultDeleteByKeys(router, '/', Customer, possibleKeys);
+MongooseCore.bindUpdateModel(router, Customer);
 
 router.get('/:name', async function(req, res) {
     res.send(await Customer.findOneBook(req.params.name));

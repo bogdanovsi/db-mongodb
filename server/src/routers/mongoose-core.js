@@ -37,9 +37,39 @@ function bindDefaultGetAll(router, path, mongooseModel) {
     })
 }
 
+function bindUpdateModel(router, mongooseModel) {
+    router.put('/:itemId', (req, res) => {
+        var itemId = req.params.itemId;
+
+        mongooseModel.findOne({ _id: itemId }, function (error, item) {
+            if (error) {
+                res.status(500).send(error);
+                return;
+            }
+
+            if (item) {                
+                for(let key in item) {
+                    if(req.body.hasOwnProperty(key)) {
+                        item[key] = req.body[key];
+                    }
+                }
+                item.save();
+
+                res.json(item);
+                return;
+            }
+
+            res.status(404).json({
+                message: 'Item with id ' + itemId + ' was not found.'
+            });
+        });
+    })
+}
+
 module.exports = {
     bindDefaultDeleteAll,
     bindDefaultGetAll,
     bindDefaultDeleteByKeys,
-    bindDefaultCreateModel
+    bindDefaultCreateModel,
+    bindUpdateModel
 }
