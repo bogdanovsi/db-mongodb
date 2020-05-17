@@ -24,14 +24,12 @@ router.get('/all', async (req, res) => {
         {
             $lookup: {
                 from: "writers",
-                localField: "writer",
+                localField: 'writer',
                 foreignField: "_id",
                 as: "writer"
             }
         }
     ]).exec().then((result) => {
-        console.log('aggregate elems', result.find(item => item.writer.length > 0));
-
         res.send(result);
     }).catch((err) => {
         console.log(err);
