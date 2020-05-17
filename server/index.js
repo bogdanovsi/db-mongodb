@@ -14,6 +14,7 @@ app.use(staicFiles);
 // routers
 app.use('/books', require('./src/routers/book.js'));
 app.use('/writers', require('./src/routers/writer.js'));
+app.use('/customers', require('./src/routers/customers.js'));
 
 // another routers
 app.get('/*', (req, res) => {
