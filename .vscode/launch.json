@@ -5,13 +5,35 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch",
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
+            "program": "${workspaceRoot}/server/index.js",
+            "stopOnEntry": true,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy",
+                "--inspect-brk=8080"
             ],
-            "program": "${workspaceFolder}\\index.js"
+            "externalConsole": false,
+            "sourceMaps": false,
+            "outDir": null
+        },
+        {
+            "name": "attach",
+            "type": "node",
+            "request": "attach",
+            "program": "${workspaceRoot}/server/index.js",
+            "restart": false,
+            "sourceMaps": false,
+            "outDir": null,
+            "address": "localhost",
+            "port": 8080,
+            "localRoot": "${workspaceRoot}/server",
+            "remoteRoot": null
         }
     ]
 }

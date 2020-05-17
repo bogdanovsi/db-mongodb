@@ -18,6 +18,7 @@ const possibleKeys = [
 MongooseCore.bindDefaultDeleteAll(router, '/all', Book);
 MongooseCore.bindDefaultCreateModel(router, '/', Book);
 MongooseCore.bindDefaultDeleteByKeys(router, '/', Book, possibleKeys);
+MongooseCore.bindUpdateModel(router, Book);
 
 router.get('/all', async (req, res) => {
     await Book.aggregate([

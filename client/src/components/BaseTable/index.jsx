@@ -60,7 +60,7 @@ class BaseTable extends Component {
     }
 
     transformDataToColumns(data) {
-        if(!data && Array.isArrau(data) && data.length > 0) return [];
+        if(Array.isArray(data) && data.length < 1) return [];
         
         return Object.keys(data[0])
             .filter((key) => key[0] !== PRIVATE_FLAG)

@@ -11,6 +11,7 @@ MongooseCore.bindDefaultGetAll(router, '/all', Writer);
 MongooseCore.bindDefaultDeleteAll(router, '/all', Writer);
 MongooseCore.bindDefaultCreateModel(router, '/', Writer);
 MongooseCore.bindDefaultDeleteByKeys(router, '/', Writer, possibleKeys);
+MongooseCore.bindUpdateModel(router, Writer);
 
 router.get('/:name', async function(req, res) {
     res.send(await Writer.find({ name: req.params.name }));
