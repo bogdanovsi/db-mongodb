@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
+import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
 
 const layout = {
   labelCol: {
@@ -90,7 +90,7 @@ const AddOrderForm = () => {
         label="Annulment"
         name="annulment"
       >
-        <Checkbox>Annulment</Checkbox>
+        <Checkbox />
       </Form.Item>
 
       <Form.Item
