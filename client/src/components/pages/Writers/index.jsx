@@ -44,12 +44,7 @@ class Writers extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >       
-                    <p>Name: {this.state.record.name}</p>
-                    <p>Surname: {this.state.record.surname}</p>
-                    <p>Patronymic: {this.state.record.patronymic}</p>
-                    <p>Passport number: {this.state.record.passport_number}</p>
-                    <p>Address: {this.state.record.address}</p>
-                    <p>Phone: {this.state.record.phone}</p>
+                    <EditWriter currentData={this.state.record} />
                 </Modal>
             </>
         )

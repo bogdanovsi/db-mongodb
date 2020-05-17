@@ -47,7 +47,6 @@ class Customers extends Component {
                     <p>address: {this.state.record.address}</p>
                     <p>phone_number: {this.state.record.phone_number}</p>
                     <p>contact_person: {this.state.record.contact_person}</p>
-                    <p>book_cipher: {this.state.record.book_cipher}</p>
                 </Modal>
             </>
         )

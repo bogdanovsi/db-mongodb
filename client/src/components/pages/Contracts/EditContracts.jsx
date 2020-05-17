@@ -1,5 +1,5 @@
 import React, { Component, useForm } from 'react';
-import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
+import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
 
 const layout = {
   labelCol: {
@@ -16,10 +16,11 @@ const tailLayout = {
   },
 };
 
-const EditWriter = ({currentData}) => {
+const EditContracts = ({currentData}) => {
+  console.log(currentData.annulment_date);
   const [form] = Form.useForm();
   const onFinish = values => {    
-    fetch('/writers/', {
+    fetch('/contracts/', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'
@@ -27,7 +28,6 @@ const EditWriter = ({currentData}) => {
       body: JSON.stringify(values)
     });
   };
-
 
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
@@ -37,10 +37,10 @@ const EditWriter = ({currentData}) => {
 
   return (
     <Form
-      action="writer"
+      action="contracts"
       method="post"
-      {...layout}
       form={form}
+      {...layout}
       name="basic"
       initialValues={{
         remember: true,
@@ -49,81 +49,62 @@ const EditWriter = ({currentData}) => {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="Surname"
-        name="surname"
+        label="Number contract"
+        name="number_contract"
         rules={[
           {
             required: true,
-            message: 'Please input Surname',
+            message: 'Please input number contract',
           },
         ]}
       >
-        <Input defaultValue={currentData.surname || ''} />
+        <InputNumber 
+          step={100}
+          min={0}
+          defaultValue={currentData.number_contract || ''}
+        />
       </Form.Item>
 
       <Form.Item
-        label="Name"
-        name="name"
+        label="Created"
+        name="created"
         rules={[
           {
             required: true,
-            message: 'Please input name',
+            message: 'Please input created',
           },
         ]}
       >
-        <Input defaultValue={currentData.name || ''}/>
+        <DatePicker defaultValue={moment(currentData.created).format() || ''}/>
       </Form.Item>
 
-      <Form.Item
-        label="Passport number"
-        name="passport_number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input Passport number',
-          },
-        ]}
-      >
-        <Input defaultValue={currentData.passport_number || ''} />
-      </Form.Item>
       
       <Form.Item
-        label="Patronymic"
-        name="patronymic"
+        label="Expiration date"
+        name="expiration_date"
         rules={[
           {
             required: true,
-            message: 'Please input patronymic',
+            message: 'Please input expiration date',
           },
         ]}
       >
-        <Input defaultValue={currentData.patronymic || ''}/>
+        <DatePicker defaultValue={moment(currentData.expiration_date).format() || ''}/>
       </Form.Item>
 
       <Form.Item
-        label="Address"
-        name="address"
-        rules={[
-          {
-            required: true,
-            message: 'Please input adress',
-          },
-        ]}
+        label="Annulment"
+        name="annulment"
+        valuePropName="checked"
       >
-        <Input defaultValue={currentData.address || ''}/>
+        <Checkbox defaultValue={currentData.annulment || ''}/>
       </Form.Item>
 
       <Form.Item
-        label="Phone"
-        name="phone"
-        rules={[
-          {
-            required: true,
-            message: 'Please input phone',
-          },
-        ]}
+        label="Annulment date"
+        name="annulment_date"
       >
-        <Input defaultValue={currentData.phone || ''}/>
+        <DatePicker defaultValue={moment(currentData.annulment_date).format() || ''} />
       </Form.Item>
     
       <Form.Item {...tailLayout}>
@@ -135,4 +116,4 @@ const EditWriter = ({currentData}) => {
   );
 };
 
-export default EditWriter;
+export default EditContracts;
