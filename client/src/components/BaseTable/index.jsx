@@ -36,10 +36,13 @@ class BaseTable extends Component {
                 'Content-Type': 'application/json'
             }  
         }).then(res => {
-            if(res.ok) { 
+            const checkDeleteCount = (res) => res.deleteCount && res.deleteCount > 0;
+            if(res.ok && checkDeleteCount(res)) { 
                 this.setState({
                     dataSource: dataSource.filter(item => item.key !== key),
                 });
+            } else {
+                
             }
         })
     };
