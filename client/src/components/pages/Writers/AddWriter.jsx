@@ -27,6 +27,7 @@ const AddWriter = () => {
     });
   };
 
+
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
@@ -105,7 +106,7 @@ const AddWriter = () => {
           },
         ]}
       >
-        <Input/>
+        <Input />
       </Form.Item>
 
       <Form.Item
@@ -118,7 +119,7 @@ const AddWriter = () => {
           },
         ]}
       >
-        <Input/>
+        <Input />
       </Form.Item>
     
       <Form.Item {...tailLayout}>

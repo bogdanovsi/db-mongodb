@@ -10,7 +10,8 @@ class BaseTable extends Component {
 
         this.state = {
             dataSource: [],
-            columns: []
+            columns: [],
+            editOpen: false
         }
     }
     
@@ -92,10 +93,18 @@ class BaseTable extends Component {
         )
     }
 
+
     render() {
         return (
             <>
-                <Table dataSource={this.state.dataSource} columns={this.state.columns} />
+                <Table
+                     onRow={(record, rowIndex) => {
+                        return {
+                          onClick: event => {
+                              this.props.onRowClick(record);
+                          }
+                    }}}
+                  dataSource={this.state.dataSource} columns={this.state.columns} />
             </>
         );
     }

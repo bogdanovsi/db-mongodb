@@ -16,9 +16,10 @@ const tailLayout = {
   },
 };
 
-const AddBookForm = () => {
+const EditWriter = ({currentData}) => {
+  console.log(currentData);
   const onFinish = values => {    
-    fetch('/books/', {
+    fetch('/writers/', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'
@@ -27,13 +28,14 @@ const AddBookForm = () => {
     });
   };
 
+
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
 
   return (
     <Form
-      action="book"
+      action="writer"
       method="post"
       {...layout}
       name="basic"
@@ -43,6 +45,18 @@ const AddBookForm = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
+      <Form.Item
+        label="Surname"
+        name="surname"
+        rules={[
+          {
+            required: true,
+            message: 'Please input Surname',
+          },
+        ]}
+      >
+        <Input defaultValue={currentData.surname || ''} />
+      </Form.Item>
 
       <Form.Item
         label="Name"
@@ -50,100 +64,65 @@ const AddBookForm = () => {
         rules={[
           {
             required: true,
-            message: 'Please input book name',
+            message: 'Please input name',
           },
         ]}
       >
-        <Input />
+        <Input defaultValue={currentData.name || ''}/>
       </Form.Item>
 
       <Form.Item
-        label="Chiper"
-        name="book_cipher"
+        label="Passport number"
+        name="passport_number"
         rules={[
           {
             required: true,
-            message: 'Please input book chiper',
+            message: 'Please input Passport number',
           },
         ]}
       >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Circulation"
-        name="circulation"
-        rules={[
-          {
-            required: true,
-            message: 'Please input circulation',
-          },
-        ]}
-      >
-        <InputNumber min={0} step={100} />
-      </Form.Item>
-
-      <Form.Item
-        label="Publication date"
-        name="publication_date"
-        rules={[
-          {
-            required: true,
-            message: 'Please input publication date',
-          },
-        ]}
-      >
-        <DatePicker />
-      </Form.Item>
-
-      <Form.Item
-        label="Cost price"
-        name="cost_price"
-        rules={[
-          {
-            required: true,
-            message: 'Please input cost price',
-          },
-        ]}
-      >
-        <InputNumber 
-          step={100}
-          min={0}
-        />
+        <Input defaultValue={currentData.passport_number || ''} />
       </Form.Item>
       
       <Form.Item
-        label="Selling price"
-        name="selling_price"
+        label="Patronymic"
+        name="patronymic"
         rules={[
           {
             required: true,
-            message: 'Please input selling price',
+            message: 'Please input patronymic',
           },
         ]}
       >
-        <InputNumber 
-          step={100}
-          min={0}
-        />
-      </Form.Item>
-      
-      <Form.Item
-        label="Fee"
-        name="fee"
-        rules={[
-          {
-            required: true,
-            message: 'Please input fee',
-          },
-        ]}
-      >
-        <InputNumber 
-          step={100}
-          min={0}
-        />
+        <Input defaultValue={currentData.patronymic || ''}/>
       </Form.Item>
 
+      <Form.Item
+        label="Address"
+        name="address"
+        rules={[
+          {
+            required: true,
+            message: 'Please input adress',
+          },
+        ]}
+      >
+        <Input defaultValue={currentData.address || ''}/>
+      </Form.Item>
+
+      <Form.Item
+        label="Phone"
+        name="phone"
+        rules={[
+          {
+            required: true,
+            message: 'Please input phone',
+          },
+        ]}
+      >
+        <Input defaultValue={currentData.phone || ''}/>
+      </Form.Item>
+    
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
           Submit
@@ -153,4 +132,4 @@ const AddBookForm = () => {
   );
 };
 
-export default AddBookForm;
+export default EditWriter;
