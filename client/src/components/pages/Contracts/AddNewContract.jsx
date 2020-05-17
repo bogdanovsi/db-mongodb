@@ -89,6 +89,7 @@ const AddOrderForm = () => {
       <Form.Item
         label="Annulment"
         name="annulment"
+        valuePropName="checked"
       >
         <Checkbox />
       </Form.Item>
