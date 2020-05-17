@@ -37,6 +37,8 @@ function bindDefaultGetAll(router, path, mongooseModel) {
     })
 }
 
+
+
 module.exports = {
     bindDefaultDeleteAll,
     bindDefaultGetAll,
