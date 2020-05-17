@@ -1,8 +1,11 @@
 import React, { Component, useState } from 'react';
 import { Table, Popconfirm } from 'antd';
 import DeleteCell from './DeleteCell';
+import moment from 'moment';
+import { DATE_FORMAT } from '../../constants';
 
 const PRIVATE_FLAG = '_';
+const DATEFORMAT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d{3})*Z$/;
 
 class BaseTable extends Component {
     constructor(props) {
@@ -87,7 +90,19 @@ class BaseTable extends Component {
             return res.json();
         })
         .then(res => this.setState({
-                dataSource: res.map((item, i) => { return { ...item, key: i } }),
+                dataSource: res.map((item, i) => { 
+                    let data = {}
+
+                    for(let key in item) {
+                        if(DATEFORMAT.test(item[key])) {
+                            data[key] = moment(item[key]).format(DATE_FORMAT)
+                        } else {
+                            data[key] = item[key]
+                        }
+                    }
+
+                    return data
+                }),
                 columns: this.addedOperations(this.transformDataToColumns(res))
             })
         )

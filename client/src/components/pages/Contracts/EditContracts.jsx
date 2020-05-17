@@ -2,6 +2,8 @@ import React, { Component, useForm } from 'react';
 import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
 import moment from 'moment';
 
+import { DATE_FORMAT } from '../../../constants';
+
 const layout = {
   labelCol: {
     span: 8,
@@ -39,9 +41,9 @@ const EditContracts = ({currentData}) => {
   if(currentData) {
     form.setFieldsValue({
       ...currentData,
-      created: moment(currentData.created),
-      expiration_date: moment(currentData.expiration_date),
-      annulment_date: moment(currentData.annulment_date)
+      created: moment(currentData.created, DATE_FORMAT),
+      expiration_date: moment(currentData.expiration_date, DATE_FORMAT),
+      annulment_date: moment(currentData.annulment_date, DATE_FORMAT)
     });
   }
 
