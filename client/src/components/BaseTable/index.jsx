@@ -37,7 +37,12 @@ class BaseTable extends Component {
             headers: {
                 'Content-Type': 'application/json'
             }  
-        }).then(res => {
+        })
+        .then(res => {
+            if (!res.ok) { throw res; }
+            return res.json();
+        })
+        .then(res => {
             const checkDeleteCount = (res) => res.deletedCount && res.deletedCount > 0;
             if(res.ok && checkDeleteCount(res)) { 
                 this.setState({
