@@ -38,13 +38,13 @@ class BaseTable extends Component {
                 'Content-Type': 'application/json'
             }  
         }).then(res => {
-            const checkDeleteCount = (res) => res.deleteCount && res.deleteCount > 0;
+            const checkDeleteCount = (res) => res.deletedCount && res.deletedCount > 0;
             if(res.ok && checkDeleteCount(res)) { 
                 this.setState({
                     dataSource: dataSource.filter(item => item.key !== key),
                 });
             } else {
-
+                console.error("Не удалось удалить элемент");
             }
         })
     };
@@ -54,7 +54,7 @@ class BaseTable extends Component {
     }
 
     transformDataToColumns(data) {
-        if(!data) return [];
+        if(!data && Array.isArrau(data) && data.length > 0) return [];
         
         return Object.keys(data[0])
             .filter((key) => key[0] !== PRIVATE_FLAG)

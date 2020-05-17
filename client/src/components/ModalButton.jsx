@@ -23,16 +23,8 @@ export default class ModalButton extends React.Component {
   };
 
   render() {
-    
-    const container = {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-end',
-      marginBottom: '15px'
-    }
-
     return (
-      <div style={container}>
+      <div>
         <Button type="primary" onClick={this.showModal}>
           {this.props.actionType}
         </Button>

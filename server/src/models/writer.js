@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Writer = new Schema(
     {
-        pasport_number: { type: Number, default: '' },
+        pasport_number: { type: String, default: '' },
         surname: { type: String, default: '' },
         name: { type: String, default: '' },
         patronymic: { type: String, default: '' },

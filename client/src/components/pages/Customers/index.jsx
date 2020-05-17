@@ -5,17 +5,10 @@ import ModalButton from '../../ModalButton';
 
 class Customers extends Component {
     render() {
-        const container = {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-end',
-            marginBottom: '15px'
-        }   
-
         return (
             <>
                 <h2 style={{textAlign: 'center'}}>Customers</h2>
-                <div style={container}>
+                <div className="table-btns-row">
                     <ModalButton tableType={'Add new customer'} formComponent={AddCustomer} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"customers"} />

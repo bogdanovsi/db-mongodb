@@ -79,7 +79,7 @@ const AddWriter = () => {
           },
         ]}
       >
-        <InputNumber />
+        <Input />
       </Form.Item>
       
       <Form.Item
