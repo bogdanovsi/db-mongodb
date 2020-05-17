@@ -5,6 +5,7 @@ import ModalButton from '../../ModalButton';
 import EditContracts from './EditContracts';
 import { Modal } from 'antd';
 
+
 class Contracts extends Component {
     constructor(props) {
         super(props);

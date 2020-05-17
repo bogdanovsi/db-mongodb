@@ -18,9 +18,9 @@ const tailLayout = {
 
 const EditWriter = ({currentData}) => {
   const [form] = Form.useForm();
-  const onFinish = values => {    
-    fetch('/writers/', {
-        method: 'POST',
+  const onFinish = values => {
+    fetch(`/writers/${currentData._id}`, {
+        method: 'PUT',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },

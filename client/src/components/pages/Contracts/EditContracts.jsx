@@ -1,5 +1,6 @@
 import React, { Component, useForm } from 'react';
 import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
+import moment from 'moment';
 
 const layout = {
   labelCol: {
@@ -16,12 +17,14 @@ const tailLayout = {
   },
 };
 
+const dateFormat = 'YYYY/MM/DD';
+
 const EditContracts = ({currentData}) => {
   console.log(currentData.annulment_date);
   const [form] = Form.useForm();
   const onFinish = values => {    
-    fetch('/contracts/', {
-        method: 'POST',
+    fetch(`/contracts/${currentData._id}`, {
+        method: 'PUT',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
@@ -33,7 +36,12 @@ const EditContracts = ({currentData}) => {
     console.log('Failed:', errorInfo);
   };
 
-  if(currentData) form.setFieldsValue(currentData);
+  if(currentData) form.setFieldsValue({
+    ...currentData,
+    created: moment(currentData.created),
+    expiration_date: moment(currentData.expiration_date),
+    annulment_date: moment(currentData.annulment_date)
+  });
 
   return (
     <Form
@@ -43,7 +51,10 @@ const EditContracts = ({currentData}) => {
       {...layout}
       name="basic"
       initialValues={{
-        remember: true,
+        ...currentData,
+        created: moment(currentData.created),
+        expiration_date: moment(currentData.expiration_date),
+        annulment_date: moment(currentData.annulment_date)
       }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
@@ -61,7 +72,6 @@ const EditContracts = ({currentData}) => {
         <InputNumber 
           step={100}
           min={0}
-          defaultValue={currentData.number_contract || ''}
         />
       </Form.Item>
 
@@ -75,7 +85,7 @@ const EditContracts = ({currentData}) => {
           },
         ]}
       >
-        <DatePicker defaultValue={moment(currentData.created).format() || ''}/>
+        <DatePicker format={dateFormat} />
       </Form.Item>
 
       
@@ -89,7 +99,7 @@ const EditContracts = ({currentData}) => {
           },
         ]}
       >
-        <DatePicker defaultValue={moment(currentData.expiration_date).format() || ''}/>
+        <DatePicker format={dateFormat}/>
       </Form.Item>
 
       <Form.Item
@@ -97,14 +107,14 @@ const EditContracts = ({currentData}) => {
         name="annulment"
         valuePropName="checked"
       >
-        <Checkbox defaultValue={currentData.annulment || ''}/>
+        <Checkbox />
       </Form.Item>
 
       <Form.Item
         label="Annulment date"
         name="annulment_date"
       >
-        <DatePicker defaultValue={moment(currentData.annulment_date).format() || ''} />
+        <DatePicker format={dateFormat} />
       </Form.Item>
     
       <Form.Item {...tailLayout}>
