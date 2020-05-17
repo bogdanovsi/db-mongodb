@@ -42,9 +42,7 @@ const EditWriter = ({currentData}) => {
       {...layout}
       form={form}
       name="basic"
-      initialValues={{
-        remember: true,
-      }}
+      initialValues={currentData}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
@@ -58,7 +56,7 @@ const EditWriter = ({currentData}) => {
           },
         ]}
       >
-        <Input defaultValue={currentData.surname || ''} />
+        <Input />
       </Form.Item>
 
       <Form.Item
@@ -71,7 +69,7 @@ const EditWriter = ({currentData}) => {
           },
         ]}
       >
-        <Input defaultValue={currentData.name || ''}/>
+        <Input />
       </Form.Item>
 
       <Form.Item
@@ -84,7 +82,7 @@ const EditWriter = ({currentData}) => {
           },
         ]}
       >
-        <Input defaultValue={currentData.passport_number || ''} />
+        <Input />
       </Form.Item>
       
       <Form.Item
@@ -97,7 +95,7 @@ const EditWriter = ({currentData}) => {
           },
         ]}
       >
-        <Input defaultValue={currentData.patronymic || ''}/>
+        <Input />
       </Form.Item>
 
       <Form.Item
@@ -110,7 +108,7 @@ const EditWriter = ({currentData}) => {
           },
         ]}
       >
-        <Input defaultValue={currentData.address || ''}/>
+        <Input />
       </Form.Item>
 
       <Form.Item
@@ -123,7 +121,7 @@ const EditWriter = ({currentData}) => {
           },
         ]}
       >
-        <Input defaultValue={currentData.phone || ''}/>
+        <Input />
       </Form.Item>
     
       <Form.Item {...tailLayout}>

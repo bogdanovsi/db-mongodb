@@ -36,12 +36,14 @@ const EditContracts = ({currentData}) => {
     console.log('Failed:', errorInfo);
   };
 
-  if(currentData) form.setFieldsValue({
-    ...currentData,
-    created: moment(currentData.created),
-    expiration_date: moment(currentData.expiration_date),
-    annulment_date: moment(currentData.annulment_date)
-  });
+  if(currentData) {
+    form.setFieldsValue({
+      ...currentData,
+      created: moment(currentData.created),
+      expiration_date: moment(currentData.expiration_date),
+      annulment_date: moment(currentData.annulment_date)
+    });
+  }
 
   return (
     <Form
