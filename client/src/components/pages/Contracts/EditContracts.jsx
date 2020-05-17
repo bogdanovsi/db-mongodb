@@ -17,7 +17,7 @@ const tailLayout = {
   },
 };
 
-const dateFormat = 'YYYY/MM/DD';
+const dateFormat = 'DD-MM-YYYY';
 
 const EditContracts = ({currentData}) => {
   console.log(currentData.annulment_date);
