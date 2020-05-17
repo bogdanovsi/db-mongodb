@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Writer = require('./writer').Writer;
-
 const Book = new Schema(
     {
-        writer: [Writer],
+        writer: [{ type: Schema.Types.ObjectId, ref: 'Writer' }],
         book_cipher: { type: Number, default: '' },
         name: { type: String, default: '' },
         circulation: { type: Number, default: '' },

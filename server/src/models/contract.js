@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Contract = new Schema(
     {
-        writer: { type: Schema.Types.ObjectId, ref: 'Writer' },
+        writer: [{ type: Schema.Types.ObjectId, ref: 'Writer' }],
         number_contract: Number,
         created: Date,
         expiration_date: Date,

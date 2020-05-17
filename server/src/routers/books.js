@@ -15,10 +15,28 @@ const possibleKeys = [
     "fee"
 ];
 
-MongooseCore.bindDefaultGetAll(router, '/all', Book);
 MongooseCore.bindDefaultDeleteAll(router, '/all', Book);
 MongooseCore.bindDefaultCreateModel(router, '/', Book);
 MongooseCore.bindDefaultDeleteByKeys(router, '/', Book, possibleKeys);
+
+router.get('/all', async (req, res) => {
+    await Book.aggregate([
+        {
+            $lookup: {
+                from: "writers",
+                localField: "writer",
+                foreignField: "_id",
+                as: "writer"
+            }
+        }
+    ]).exec().then((result) => {
+        console.log('aggregate elems', result.find(item => item.writer.length > 0));
+
+        res.send(result);
+    }).catch((err) => {
+        console.log(err);
+    });
+})
 
 router.get('/:name', async function(req, res) {
     res.send(await Book.findOneBook(req.params.name));
