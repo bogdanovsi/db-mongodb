@@ -18,7 +18,7 @@ const tailLayout = {
 
 const AddCustomer = () => {
   const onFinish = values => {    
-    fetch('/post', {
+    fetch('/customers/', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'

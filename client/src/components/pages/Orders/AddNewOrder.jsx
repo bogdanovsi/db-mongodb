@@ -18,7 +18,7 @@ const tailLayout = {
 
 const AddOrderForm = () => {
   const onFinish = values => {    
-    fetch('/post', {
+    fetch('/orders/', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'

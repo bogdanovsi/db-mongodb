@@ -18,7 +18,7 @@ const tailLayout = {
 
 const AddWriter = () => {
   const onFinish = values => {    
-    fetch('/post', {
+    fetch('/writers/', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json;charset=utf-8'
