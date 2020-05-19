@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const MongooseCore = require('./mongoose-core');
 const { Order } = require('../models');
 
@@ -12,6 +13,32 @@ MongooseCore.bindDefaultDeleteAll(router, '/all', Order);
 MongooseCore.bindDefaultCreateModel(router, '/', Order);
 MongooseCore.bindDefaultDeleteByKeys(router, '/', Order, possibleKeys);
 MongooseCore.bindUpdateModel(router, Order);
+
+router.get('/data/:orderId', async (req, res) => {
+    Order.aggregate([
+        {
+            $lookup: {
+                from: "customers",
+                localField: 'customer',
+                foreignField: "_id",
+                as: "customer"
+            }
+        },
+        {
+            $lookup: {
+                from: "books",
+                localField: 'book',
+                foreignField: "_id",
+                as: "book"
+            }
+        }
+    ])
+    .match({ _id: mongoose.Types.ObjectId(req.params.orderId) })
+    .limit(1)
+    .exec(function (err, orders) {
+        res.send(orders);
+    });
+});
 
 router.get('/all', async (req, res) => {
     await Order.aggregate([
