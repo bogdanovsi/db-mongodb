@@ -40,6 +40,7 @@ class Customers extends Component {
                 </div>
                 <BaseTable route={"customers"} onRowClick={this.onClick}/>
                 <Modal
+                    title={`customer: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}

@@ -45,6 +45,7 @@ class Contracts extends Component {
                     renderLookup={(writer) => `${writer.name} ${writer.surname}`}
                 />
                 <Modal
+                    title={`contract: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}

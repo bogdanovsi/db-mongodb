@@ -33,6 +33,7 @@ export default class ModalButton extends React.Component {
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
+          footer={null}
         >
           <this.props.formComponent />
         </Modal>

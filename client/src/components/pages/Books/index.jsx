@@ -43,6 +43,7 @@ class Books extends Component {
                 </div>
                 <BaseTable route={"books"}  onRowClick={this.onClick}/>
                 <Modal
+                    title={`book: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}

@@ -40,9 +40,11 @@ class Writers extends Component {
                 </div>
                 <BaseTable route={"writers"} onRowClick={this.onClick}/>
                 <Modal
+                    title={`writer: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    footer={null}
                 >       
                     <EditWriter currentData={this.state.record} />
                 </Modal>
