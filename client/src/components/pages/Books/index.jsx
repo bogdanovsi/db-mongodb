@@ -6,6 +6,7 @@ import EditBook from './EditBook';
 import { Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
+import BooksInfo from './BooksInfo';
 
 
 class Books extends Component {
@@ -13,7 +14,8 @@ class Books extends Component {
         super(props);
         this.state = {
             isOpen: false,
-            record: ''
+            record: '',
+            viewMode: true
         }
     }
     onClick = (record) => {
@@ -34,6 +36,12 @@ class Books extends Component {
         });
     };
 
+    onModeChange = e => {
+        this.setState({
+            viewMode: !this.state.viewMode
+        });
+    }
+
     render() {
         return (
             <>
@@ -42,13 +50,18 @@ class Books extends Component {
                     <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"books"}  onRowClick={this.onClick}/>
+                
+
                 <Modal
                     title={`book: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >       
-                    <EditBook currentData={this.state.record} />
+                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
+                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                    </Button>
+                    {this.state.viewMode ? <BooksInfo currentData={this.state.record}/> : <EditBook currentData={this.state.record}/> }
                 </Modal>
             </>
         )

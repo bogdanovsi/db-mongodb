@@ -4,13 +4,15 @@ import AddCustomer from './AddCustomer';
 import ModalButton from '../../ModalButton';
 import EditCustomers from './EditCustomers';
 import { Modal, Button } from 'antd';
+import CustomerInfo from './CustomerInfo';
 
 class Customers extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isOpen: false,
-            record: ''
+            record: '',
+            viewMode: true
         }
     }
     onClick = (record) => {
@@ -31,6 +33,13 @@ class Customers extends Component {
         });
     };
 
+    onModeChange = e => {
+        this.setState({
+            viewMode: !this.state.viewMode
+        });
+    }
+
+
     render() {
         return (
             <>
@@ -45,7 +54,10 @@ class Customers extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >   
-                    <EditCustomers currentData={this.state.record}/>
+                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
+                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                    </Button>
+                    { this.state.viewMode ? <CustomerInfo currentData={this.state.record} /> : <EditCustomers currentData={this.state.record}/>}
                 </Modal>
             </>
         )

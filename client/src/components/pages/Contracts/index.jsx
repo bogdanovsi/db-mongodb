@@ -4,6 +4,8 @@ import AddNewContract from './AddNewContract';
 import ModalButton from '../../ModalButton';
 import EditContracts from './EditContracts';
 import { Modal } from 'antd';
+import { Button } from 'antd';
+import ContractsInfo from './ContractsInfo';
 
 
 class Contracts extends Component {
@@ -11,7 +13,8 @@ class Contracts extends Component {
         super(props);
         this.state = {
             isOpen: false,
-            record: ''
+            record: '',
+            viewMode: true
         }
     }
     onClick = (record) => {
@@ -32,6 +35,13 @@ class Contracts extends Component {
         });
     };
 
+    onModeChange = e => {
+        this.setState({
+            viewMode: !this.state.viewMode
+        });
+    }
+
+
     render() {
         return (
             <>
@@ -50,7 +60,10 @@ class Contracts extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >       
-                    <EditContracts currentData={this.state.record} />
+                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
+                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                    </Button>
+                    {this.state.viewMode ? <ContractsInfo currentData={this.state.record}/> : <EditContracts currentData={this.state.record}/> }
                 </Modal>
             </>
         )
