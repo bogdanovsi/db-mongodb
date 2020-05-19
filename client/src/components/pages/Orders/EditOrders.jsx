@@ -78,7 +78,7 @@ const EditOrders = ({currentData}) => {
 
       <Form.Item
         label="Chiper"
-        name="chiper"
+        name="book_cipher"
         rules={[
           {
             required: true,
@@ -118,7 +118,7 @@ const EditOrders = ({currentData}) => {
 
       <Form.Item
         label="Copies number"
-        name="order_book_copies_number"
+        name="oredered_book_copies_number"
         rules={[
           {
             required: true,
