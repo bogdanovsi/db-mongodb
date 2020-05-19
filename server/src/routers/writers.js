@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const MongooseCore = require('./mongoose-core');
-const { Writer, Book } = require('../models');
+const { Writer, Contract } = require('../models');
 const mongoose = require('mongoose');
 
 const possibleKeys = [
@@ -13,6 +13,21 @@ MongooseCore.bindDefaultDeleteAll(router, '/all', Writer);
 MongooseCore.bindDefaultCreateModel(router, '/', Writer);
 MongooseCore.bindDefaultDeleteByKeys(router, '/', Writer, possibleKeys);
 MongooseCore.bindUpdateModel(router, Writer);
+
+router.get('/:writerId/contract', async function(req, res) {
+    const contracts = await Contract.aggregate([
+        {
+            $lookup: {
+                from: "writers",
+                localField: 'writer',
+                foreignField: "_id",
+                as: "writer"
+            }
+        }
+    ]).limit(1);
+
+    res.send(contracts[0] ? contracts[0] : null);
+})
 
 router.get('/:writerId/books', async function(req, res) {
     const books = await Book.aggregate([

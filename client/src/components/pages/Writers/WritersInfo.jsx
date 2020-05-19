@@ -5,12 +5,15 @@ const CustomerInfo = ({ currentData }) => {
 
   return (
       <>
-        <p>surname: {currentData.surname}</p>
-        <p>name: {currentData.name}</p>
-        <p>passport number: {currentData.pasport_number}</p>
-        <p>patronymic: {currentData.patronymic}</p>
-        <p>address: {currentData.address}</p>
-        <p>phone: {currentData.phone}</p>
+        <div style={{ margin: '10px 0' }}>
+          <p><b>surname:</b> {currentData.surname}</p>
+          <p><b>name:</b> {currentData.name}</p>
+          <p><b>passport number:</b> {currentData.pasport_number}</p>
+          <p><b>patronymic:</b> {currentData.patronymic}</p>
+          <p><b>address:</b> {currentData.address}</p>
+          <p><b>phone:</b> {currentData.phone}</p>
+        </div>
+        
       </>
   );
 };
