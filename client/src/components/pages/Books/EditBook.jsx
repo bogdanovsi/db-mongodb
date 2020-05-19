@@ -88,7 +88,7 @@ const EditBook = ({currentData}) => {
         },
       ]}
     >
-      <InputNumber />
+      <Input />
     </Form.Item>
 
     <Form.Item
