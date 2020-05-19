@@ -80,7 +80,7 @@ const EditBook = ({currentData}) => {
 
     <Form.Item
       label="Chiper"
-      name="book_cipher"
+      name="book_chiper"
       rules={[
         {
           required: true,

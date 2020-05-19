@@ -74,8 +74,8 @@ const EditContracts = ({currentData}) => {
       />
 
       <Form.Item
-        label="Number contract"
-        name="number_contract"
+        label="Contract Number"
+        name="contract_number"
         rules={[
           {
             required: true,

@@ -50,7 +50,6 @@ class Books extends Component {
                     <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"books"}  onRowClick={this.onClick}/>
-                
 
                 <Modal
                     title={`book: ${this.state.record._id || ""}`}

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const Book = new Schema(
     {
         writer: [{ type: Schema.Types.ObjectId, ref: 'Writer' }],
-        book_cipher: { type: Number, default: '' },
+        book_chiper: { type: Number, default: '' },
         name: { type: String, default: '' },
         circulation: { type: Number, default: '' },
         publication_date: { type: Date, default: Date.now },

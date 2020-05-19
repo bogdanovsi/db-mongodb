@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const MongooseCore = require('./mongoose-core');
-const { Writer, Contract } = require('../models');
+const { Writer, Contract, Book } = require('../models');
 const mongoose = require('mongoose');
 
 const possibleKeys = [
