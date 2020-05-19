@@ -13,7 +13,8 @@ class Writers extends Component {
             isOpen: false,
             record: '',
             viewMode: true,
-            data: ''
+            data: '',
+            contract: ''
         }
     }
 
@@ -28,6 +29,14 @@ class Writers extends Component {
           },
           }).then(res => res.json())
             .then(data => this.setState({ data: data }))
+
+        fetch(`/writers/${record._id}/contracts`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+          }).then(res => res.json())
+            .then(data => this.setState({ contract: data }))
     }
 
     handleOk = e => {
@@ -69,7 +78,7 @@ class Writers extends Component {
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
-                    { this.state.viewMode ? <WritersInfo currentData={this.state.record} booksData={this.state.data} /> : <EditWriter currentData={this.state.record}/>}
+                    { this.state.viewMode ? <WritersInfo currentData={this.state.record} contract={this.state.contract} booksData={this.state.data} /> : <EditWriter currentData={this.state.record}/>}
                 </Modal>
             </>
         )

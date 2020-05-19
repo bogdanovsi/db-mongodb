@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 const { Column } = Table;
 
-const WriterInfo = ({ currentData, booksData  }) => {
+const WriterInfo = ({ currentData, booksData, contract }) => {
 
   return (
       <>
@@ -15,6 +15,8 @@ const WriterInfo = ({ currentData, booksData  }) => {
           <p><b>phone:</b> {currentData.phone}</p>
         </div>
         <div>
+          <h3>Contract</h3>
+          <p>Days until the end of the contract {Math.round((new Date(contract.expiration_date) - new Date())/1000/60/60/24)}</p>
           <h3>Books</h3>
           <Table dataSource={booksData}>
             <Column title="Name" dataIndex="name" key="name" />
