@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BaseTable from '../../BaseTable';
 import AddOrderForm from './AddNewOrder';
 import ModalButton from '../../ModalButton';
+import EditOrders from './EditOrders';
 import { Modal, Button } from 'antd';
 
 
@@ -39,6 +40,13 @@ class Orders extends Component {
                     <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} actionType={'Add'}/>
                 </div>
                 <BaseTable route={"orders"} onRowClick={this.onClick}/>
+                <Modal
+                    visible={this.state.isOpen}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                >   
+                    <EditOrders currentData={this.state.record}/>
+                </Modal>
             </>
         )
     }
