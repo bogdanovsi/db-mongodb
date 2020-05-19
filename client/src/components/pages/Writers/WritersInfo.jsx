@@ -16,7 +16,7 @@ const WriterInfo = ({ currentData, booksData, contract }) => {
         </div>
         <div>
           <h3>Contract</h3>
-          <p>Days until the end of the contract {Math.round((new Date(contract.expiration_date) - new Date())/1000/60/60/24)}</p>
+          <p>Days until the end of the contract: {Math.round((new Date(contract.expiration_date) - new Date())/1000/60/60/24)}</p>
           <h3>Books</h3>
           <Table dataSource={booksData}>
             <Column title="Name" dataIndex="name" key="name" />
