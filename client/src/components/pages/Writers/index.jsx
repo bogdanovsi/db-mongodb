@@ -12,11 +12,22 @@ class Writers extends Component {
         this.state = {
             isOpen: false,
             record: '',
-            viewMode: true
+            viewMode: true,
+            data: ''
         }
     }
+
+    
+
     onClick = (record) => {
         this.setState({ isOpen: true, record });
+        fetch(`/writers/${record._id}/books`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+          }).then(res => res.json())
+            .then(data => this.setState({ data: data }))
     }
 
     handleOk = e => {
@@ -58,7 +69,7 @@ class Writers extends Component {
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
-                    { this.state.viewMode ? <WritersInfo currentData={this.state.record} /> : <EditWriter currentData={this.state.record}/>}
+                    { this.state.viewMode ? <WritersInfo currentData={this.state.record} booksData={this.state.data} /> : <EditWriter currentData={this.state.record}/>}
                 </Modal>
             </>
         )
