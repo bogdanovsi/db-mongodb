@@ -89,37 +89,49 @@ class BaseTable extends Component {
             if (!res.ok) { throw res; }
             return res.json();
         })
-        .then(res => this.setState({
-                dataSource: res.map((item, i) => { 
-                    let data = {}
+        .then(res => {
+                this.setState({
+                    dataSource: res.map((item, i) => { 
+                        let data = { key: i }
 
-                    for(let key in item) {
-                        if(DATEFORMAT.test(item[key])) {
-                            data[key] = moment(item[key]).format(DATE_FORMAT)
-                        } else {
-                            data[key] = item[key]
+                        for(let key in item) {
+                            if(DATEFORMAT.test(item[key])) {
+                                data[key] = moment(item[key]).format(DATE_FORMAT)
+                            } else {
+                                if(Array.isArray(item[key])) {
+                                    if(item[key].length > 0) {
+                                        let writer = item[key][0];
+                                        data[key] = `${writer.name} ${writer.surname}`
+                                        data['writerData'] = writer;
+                                    }
+                                } else {
+                                    data[key] = item[key]
+                                }
+                            }
                         }
-                    }
 
-                    return data
-                }),
-                columns: this.addedOperations(this.transformDataToColumns(res))
-            })
+                        return data
+                    }),
+                    columns: this.addedOperations(this.transformDataToColumns(res))
+                });
+            }   
         )
     }
 
-
+    
     render() {
         return (
             <>
                 <Table
-                     onRow={(record, rowIndex) => {
+                  onRow={(record, rowIndex) => {
                         return {
-                          onClick: event => {
-                              this.props.onRowClick(record);
-                          }
+                        onClick: event => {
+                            this.props.onRowClick(record);
+                        }
                     }}}
-                  dataSource={this.state.dataSource} columns={this.state.columns} />
+                  dataSource={this.state.dataSource} 
+                  columns={this.state.columns} 
+                />
             </>
         );
     }

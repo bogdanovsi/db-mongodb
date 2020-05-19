@@ -1,5 +1,6 @@
 import React, { Component, useForm } from 'react';
 import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
+import SelectWriters from '../../SelectWriters';
 import moment from 'moment';
 
 import { DATE_FORMAT } from '../../../constants';
@@ -63,6 +64,8 @@ const EditContracts = ({currentData}) => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
+      <SelectWriters value={currentData.writerData != null ? currentData.writerData._id : null} />
+
       <Form.Item
         label="Number contract"
         name="number_contract"
