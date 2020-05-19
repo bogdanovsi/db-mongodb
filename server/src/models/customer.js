@@ -7,7 +7,7 @@ const Customer = new Schema(
         address: { type: String, default: '' },
         phone_number: { type: String, default: '' },
         contact_person: { type: String, default: '' }
-    }, { collection: 'customes' }
+    }, { collection: 'customers' }
 );
 
 Customer.method({});

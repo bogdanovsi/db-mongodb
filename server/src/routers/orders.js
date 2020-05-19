@@ -17,20 +17,21 @@ router.get('/all', async (req, res) => {
     await Order.aggregate([
         {
             $lookup: {
+                from: "customers",
+                localField: 'customer',
+                foreignField: "_id",
+                as: "customer"
+            }
+        },
+        {
+            $lookup: {
                 from: "books",
                 localField: 'book',
                 foreignField: "_id",
                 as: "book"
             }
         },
-        {
-            $lookup: {
-                from: "customers",
-                localField: 'customer',
-                foreignField: "_id",
-                as: "customer"
-            }
-        }
+       
     ]).exec().then((result) => {
         res.send(result);
     }).catch((err) => {

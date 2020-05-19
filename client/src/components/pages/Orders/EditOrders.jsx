@@ -90,19 +90,6 @@ const EditOrders = ({currentData}) => {
       </Form.Item>
 
       <Form.Item
-        label="Customer"
-        name="customer_id"
-        rules={[
-          {
-            required: true,
-            message: 'Please input customer',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
         label="Receipt date"
         name="receipt_date"
         rules={[
