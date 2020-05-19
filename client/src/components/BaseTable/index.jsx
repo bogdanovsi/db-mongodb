@@ -126,6 +126,8 @@ class BaseTable extends Component {
                   onRow={(record, rowIndex) => {
                         return {
                             onClick: event => {
+                                event.stopPropagation();
+                                
                                 this.props.onRowClick(record);
                             }
                         }

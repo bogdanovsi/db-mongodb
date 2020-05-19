@@ -4,7 +4,7 @@ class Home extends Component {
     render() {
         return (
             <>
-                <p>DataBase love</p>
+                <h1>Издательский центр "Печать"</h1>
             </>
         )
     }
