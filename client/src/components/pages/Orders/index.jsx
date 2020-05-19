@@ -45,6 +45,7 @@ class Orders extends Component {
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    footer={null}
                 >   
                     <EditOrders currentData={this.state.record}/>
                 </Modal>

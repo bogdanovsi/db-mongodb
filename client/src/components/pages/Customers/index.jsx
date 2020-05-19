@@ -44,6 +44,7 @@ class Customers extends Component {
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    footer={null}
                 >   
                     <EditCustomers currentData={this.state.record}/>
                 </Modal>

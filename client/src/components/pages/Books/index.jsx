@@ -47,6 +47,7 @@ class Books extends Component {
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    footer={null}
                 >       
                     <EditBook currentData={this.state.record} />
                 </Modal>

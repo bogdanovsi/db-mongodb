@@ -49,6 +49,7 @@ class Contracts extends Component {
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    footer={null}
                 >       
                     <EditContracts currentData={this.state.record} />
                 </Modal>
