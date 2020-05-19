@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const Order = new Schema(
     {
-        book_cipher: { type: Number, default: '' }, 
         book: [{ type: Schema.Types.ObjectId, ref: 'Book' }],
         customer : [{ type: Schema.Types.ObjectId, ref: 'Customer' }],
         receipt_date: { type: Date, default: Date.now },

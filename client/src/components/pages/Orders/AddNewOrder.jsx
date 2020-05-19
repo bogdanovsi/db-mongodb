@@ -63,19 +63,6 @@ const AddOrderForm = () => {
         />
 
       <Form.Item
-        label="Chiper"
-        name="book_cipher"
-        rules={[
-          {
-            required: true,
-            message: 'Please input book chiper',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
         label="Receipt date"
         name="receipt_date"
         rules={[

@@ -5,7 +5,7 @@ const BooksInfo = ({ currentData }) => {
   return (
       <>
         <p>name: {currentData.name}</p>
-        <p>book_cipher: {currentData.book_cipher}</p>
+        <p>book_chiper: {currentData.book_chiper}</p>
         <p>circulation: {currentData.circulation}</p>
         <p>cost_price: {currentData.cost_price}</p>
         <p>fee: {currentData.fee}</p>
