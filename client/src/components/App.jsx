@@ -23,7 +23,7 @@ export default class App extends Component {
       return (
          <>
             <div className="main" style={styles.main} >
-               <div className="container" style={styles.container} >
+               <div style={styles.container} >
                   <div style={{width: '10vw'}}>
                      <Menu/>
                   </div>
