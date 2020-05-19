@@ -13,11 +13,21 @@ class Orders extends Component {
         this.state = {
             isOpen: false,
             record: '',
-            viewMode: true
+            viewMode: true,
+            data: ''
         }
     }
+
+    
     onClick = (record) => {
         this.setState({ isOpen: true, record });
+        fetch(`/orders/data/${record._id}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+          }).then(res => res.json())
+            .then(data => this.setState({ data: data }))
     }
 
     handleOk = e => {
@@ -59,7 +69,7 @@ class Orders extends Component {
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
-                    { this.state.viewMode ? <OrdersInfo currentData={this.state.record} /> : <EditOrders currentData={this.state.record}/>}
+                    { this.state.viewMode ? <OrdersInfo currentData={this.state.record} costData={this.state.data}/> : <EditOrders currentData={this.state.record}/>}
                 </Modal>
             </>
         )
