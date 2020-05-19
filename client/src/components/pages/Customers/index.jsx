@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BaseTable from '../../BaseTable';
 import AddCustomer from './AddCustomer';
 import ModalButton from '../../ModalButton';
+import EditCustomers from './EditCustomers';
 import { Modal, Button } from 'antd';
 
 class Customers extends Component {
@@ -43,10 +44,7 @@ class Customers extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >   
-                    <p>customer: {this.state.record.customer_name}</p>    
-                    <p>address: {this.state.record.address}</p>
-                    <p>phone_number: {this.state.record.phone_number}</p>
-                    <p>contact_person: {this.state.record.contact_person}</p>
+                    <EditCustomers currentData={this.state.record}/>
                 </Modal>
             </>
         )
