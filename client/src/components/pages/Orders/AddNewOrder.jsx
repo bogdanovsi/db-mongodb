@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
+import SelectCollection from '../../SelectWriters';
 
 const layout = {
   labelCol: {
@@ -43,6 +44,24 @@ const AddOrderForm = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
+      <SelectCollection 
+          label="Customer"
+          name="customer"
+          route="customers"
+          renderValue={(w) => {
+            return `${w.customer_name}`
+          }}
+        />
+
+      <SelectCollection 
+          label="Book"
+          name="book"
+          route="books"
+          renderValue={(w) => {
+            return `${w.name}`
+          }}
+        />
+
       <Form.Item
         label="Chiper"
         name="chiper"

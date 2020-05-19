@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Form, Select } from 'antd';
 const { Option } = Select;
 
-class SelectWriters extends Component {
-    state = { writers: [] }
+class SelectCollection extends Component {
+    state = { items: [] }
 
     componentWillMount() {
-        fetch(`writers/all`,
+        fetch(`/${this.props.route}/all`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -20,7 +20,7 @@ class SelectWriters extends Component {
         })
         .then(res => {
           this.setState({
-            writers: res
+            items: res
           })
         })
     }
@@ -28,20 +28,22 @@ class SelectWriters extends Component {
     render() {
         return (
             <Form.Item
-                label="Writer"
-                name="writer"
+                label={this.props.label}
+                name={this.props.name}
                 rules={[
-                {
-                    required: true,
-                    message: 'Please input number contract',
-                },
+                    {
+                        required: true,
+                        message: 'Please input number contract',
+                    }
                 ]}
+                initialValues={this.props.value}
             >
-                <Select allowClear defaultValue={this.props.value}>
+                <Select allowClear>
                 {
-                    this.state.writers ? this.state.writers.map(w => {
+                    this.state.items ? this.state.items.map((w,i) => {
                     return (
-                        <Option value={w._id}>{`${w.surname} ${w.name}`}</Option>
+                        // 
+                        <Option key={i} value={w._id}>{this.props.renderValue(w)}</Option>
                     )
                     }) : null
                 }
@@ -52,4 +54,4 @@ class SelectWriters extends Component {
 
 }
 
-export default SelectWriters;
+export default SelectCollection;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Checkbox, Button, DatePicker, InputNumber, Select } from 'antd';
-import SelectWriters from '../../SelectWriters';
+import SelectCollection from '../../SelectWriters';
 
 const { Option } = Select;
 
@@ -49,7 +49,14 @@ class AddNewContract extends Component {
           onFinish={this.onFinish}
           onFinishFailed={this.onFinishFailed}
         >
-          <SelectWriters />
+          <SelectCollection 
+            label="Writer"
+            name="writer"
+            route="writers"
+            renderValue={(w) => {
+              return `${w.surname} ${w.name}`
+            }}
+          />
     
           <Form.Item
             label="Number contract"

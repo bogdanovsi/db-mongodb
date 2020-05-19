@@ -1,6 +1,6 @@
 import React, { Component, useForm } from 'react';
 import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
-import SelectWriters from '../../SelectWriters';
+import SelectCollection from '../../SelectWriters';
 import moment from 'moment';
 
 import { DATE_FORMAT } from '../../../constants';
@@ -39,13 +39,17 @@ const EditContracts = ({currentData}) => {
     console.log('Failed:', errorInfo);
   };
 
-  if(currentData) {
-    form.setFieldsValue({
+  const formatDates = (currentData) => {
+    return {
       ...currentData,
       created: moment(currentData.created, DATE_FORMAT),
       expiration_date: moment(currentData.expiration_date, DATE_FORMAT),
       annulment_date: moment(currentData.annulment_date, DATE_FORMAT)
-    });
+    }
+  }
+
+  if(currentData) {
+    form.setFieldsValue(formatDates(currentData));
   }
 
   return (
@@ -55,16 +59,19 @@ const EditContracts = ({currentData}) => {
       form={form}
       {...layout}
       name="basic"
-      initialValues={{
-        ...currentData,
-        created: moment(currentData.created),
-        expiration_date: moment(currentData.expiration_date),
-        annulment_date: moment(currentData.annulment_date)
-      }}
+      initialValues={formatDates(currentData)}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <SelectWriters value={currentData.writerData != null ? currentData.writerData._id : null} />
+      <SelectCollection 
+        label="Writer"
+        name="writer"
+        route="writers"
+        value={currentData.writerData != null ? currentData.writerData._id : null}
+        renderValue={(w) => {
+          return `${w.surname} ${w.name}`
+        }}
+      />
 
       <Form.Item
         label="Number contract"

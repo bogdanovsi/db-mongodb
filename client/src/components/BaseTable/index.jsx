@@ -101,7 +101,7 @@ class BaseTable extends Component {
                                 if(Array.isArray(item[key])) {
                                     if(item[key].length > 0) {
                                         let writer = item[key][0];
-                                        data[key] = `${writer.name} ${writer.surname}`
+                                        data[key] = this.props.renderLookup ? this.props.renderLookup(writer) : writer._id
                                         data['writerData'] = writer;
                                     }
                                 } else {
@@ -125,10 +125,11 @@ class BaseTable extends Component {
                 <Table
                   onRow={(record, rowIndex) => {
                         return {
-                        onClick: event => {
-                            this.props.onRowClick(record);
+                            onClick: event => {
+                                this.props.onRowClick(record);
+                            }
                         }
-                    }}}
+                    }}
                   dataSource={this.state.dataSource} 
                   columns={this.state.columns} 
                 />

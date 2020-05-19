@@ -39,7 +39,11 @@ class Contracts extends Component {
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new order'} formComponent={AddNewContract} actionType={'Add'}/>
                 </div>
-                <BaseTable route={"contracts"} onRowClick={this.onClick}/>
+                <BaseTable 
+                    route={"contracts"} 
+                    onRowClick={this.onClick}
+                    renderLookup={(writer) => `${writer.name} ${writer.surname}`}
+                />
                 <Modal
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
