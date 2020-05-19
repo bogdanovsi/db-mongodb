@@ -6,7 +6,15 @@ import RouterList from './RouterList';
 
 const styles = {
    container: {
-      maxWidth: '60vw'
+      padding: '24px',
+      height: '100vh',
+      background: 'beige',
+      display: 'flex'
+   },
+   main: {
+      width: '100vw',
+      height: '100vh',
+      background: 'cornflowerblue'
    }
 }
 
@@ -14,12 +22,14 @@ export default class App extends Component {
    render() {
       return (
          <>
-            <div className="container" style={{padding: '24px', display: 'flex'}} >
-               <div style={{width: '10vw'}}>
-                  <Menu/>
-               </div>
-               <div style={{width: '90vw'}}>
-                  <RouterList />
+            <div className="main" style={styles.main} >
+               <div className="container" style={styles.container} >
+                  <div style={{width: '10vw'}}>
+                     <Menu/>
+                  </div>
+                  <div style={{width: '90vw'}}>
+                     <RouterList />
+                  </div>
                </div>
             </div>
          </>
