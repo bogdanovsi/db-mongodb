@@ -3,6 +3,7 @@ import BaseTable from '../../BaseTable';
 import AddOrderForm from './AddNewOrder';
 import ModalButton from '../../ModalButton';
 import EditOrders from './EditOrders';
+import OrdersInfo from './OrdersInfo';
 import { Modal, Button } from 'antd';
 
 
@@ -11,7 +12,8 @@ class Orders extends Component {
         super(props);
         this.state = {
             isOpen: false,
-            record: ''
+            record: '',
+            viewMode: true
         }
     }
     onClick = (record) => {
@@ -31,6 +33,13 @@ class Orders extends Component {
             record: ''
         });
     };
+
+    onModeChange = e => {
+        this.setState({
+            viewMode: !this.state.viewMode
+        });
+    }
+
     
     render() {
         return (
@@ -47,7 +56,10 @@ class Orders extends Component {
                     onCancel={this.handleCancel}
                     footer={null}
                 >   
-                    <EditOrders currentData={this.state.record}/>
+                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
+                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                    </Button>
+                    { this.state.viewMode ? <OrdersInfo currentData={this.state.record} /> : <EditOrders currentData={this.state.record}/>}
                 </Modal>
             </>
         )
