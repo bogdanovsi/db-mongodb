@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BaseTable from '../../BaseTable';
 import AddWriter from './AddWriter';
 import EditWriter from './EditWriter';
+import WritersInfo from './WritersInfo';
 import ModalButton from '../../ModalButton';
 import { Modal, Button } from 'antd';
 
@@ -10,7 +11,8 @@ class Writers extends Component {
         super(props);
         this.state = {
             isOpen: false,
-            record: ''
+            record: '',
+            viewMode: true
         }
     }
     onClick = (record) => {
@@ -30,6 +32,12 @@ class Writers extends Component {
             record: ''
         });
     };
+
+    onModeChange = e => {
+        this.setState({
+            viewMode: !this.state.viewMode
+        });
+    }
     
     render() {
         return (
@@ -46,7 +54,11 @@ class Writers extends Component {
                     onCancel={this.handleCancel}
                     footer={null}
                 >       
-                    <EditWriter currentData={this.state.record} />
+                    
+                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
+                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                    </Button>
+                    { this.state.viewMode ? <WritersInfo currentData={this.state.record} /> : <EditWriter currentData={this.state.record}/>}
                 </Modal>
             </>
         )
