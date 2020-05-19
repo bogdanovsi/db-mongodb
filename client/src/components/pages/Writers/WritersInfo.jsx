@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
+import moment from 'moment';
 const { Column } = Table;
 
 const WriterInfo = ({ currentData, booksData, contract }) => {
+
+  const expDays = (contract) => moment(contract.expiration_date).diff(moment(), 'days');
 
   return (
       <>
@@ -15,8 +18,14 @@ const WriterInfo = ({ currentData, booksData, contract }) => {
           <p><b>phone:</b> {currentData.phone}</p>
         </div>
         <div>
-          <h3>Contract</h3>
-          <p>Days until the end of the contract: {Math.round((new Date(contract.expiration_date) - new Date())/1000/60/60/24)}</p>
+          { 
+            expDays(contract) <= 0 ?
+              <h3>Contract ended</h3>
+            : <>
+              <h3>Contract</h3>
+              <p>Days until the end of the contract: {expDays(contract)}</p>
+            </>
+          }
           <h3>Books</h3>
           <Table dataSource={booksData}>
             <Column title="Name" dataIndex="name" key="name" />

@@ -30,7 +30,7 @@ class Writers extends Component {
           }).then(res => res.json())
             .then(data => this.setState({ data: data }))
 
-        fetch(`/writers/${record._id}/contracts`, {
+        fetch(`/writers/${record._id}/contract`, {
             method: 'GET',
             headers: {
             'Content-Type': 'application/json;charset=utf-8'
