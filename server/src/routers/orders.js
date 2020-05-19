@@ -14,10 +14,14 @@ MongooseCore.bindDefaultCreateModel(router, '/', Order);
 MongooseCore.bindDefaultDeleteByKeys(router, '/', Order, possibleKeys);
 MongooseCore.bindUpdateModel(router, Order);
 
+const fullCost = (bookCopyCount, books) => {
+    return books.reduce((price, book) => price + (book.cost_price * bookCopyCount) + book.fee, 0);
+}
+
 const getCostInfo = (order) => {    
     return {
         data: order,
-        full_cost: order.book[0] ? order.oredered_book_copies_number * order.book[0].cost_price : 0
+        full_cost: fullCost(order.oredered_book_copies_number, order.book)
     }
 }
 
