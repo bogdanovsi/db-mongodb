@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cd server && npm run start",
     "build": "cd client && npm run build",
+    "watch": "concurrently \"cd client && npm run build:dw\" \"cd server && npm run watch\"",
     "heroku-postbuild": "npm run build",
     "install": "(cd client && npm install) && (cd server && npm install)",
     "deploy": "git push heroku master",

@@ -7,6 +7,7 @@ import { Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
 import BooksInfo from './BooksInfo';
+import ViewBook from './ViewBook';
 
 
 class Books extends Component {
@@ -49,8 +50,7 @@ class Books extends Component {
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'}/>
                 </div>
-                <BaseTable route={"books"}  onRowClick={this.onClick}/>
-
+                <ViewBook onRowClick={this.onClick} />
                 <Modal
                     title={`book: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}
