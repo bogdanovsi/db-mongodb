@@ -18,6 +18,8 @@ const tailLayout = {
 };
 
 const AddBookForm = ({ closePopup }) => {
+  const [form] = Form.useForm();
+
   const onFinish = values => {    
     fetch('/books/', {
         method: 'POST',
@@ -25,7 +27,7 @@ const AddBookForm = ({ closePopup }) => {
         'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify(values)
-    });
+    }).then(() => form.resetFields());
     closePopup();
   };
 
@@ -38,6 +40,7 @@ const AddBookForm = ({ closePopup }) => {
       action="book"
       method="post"
       {...layout}
+      form={form}
       name="basic"
       initialValues={{
         remember: true,
