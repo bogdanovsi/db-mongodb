@@ -50,7 +50,8 @@ class Books extends Component {
                     <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'}/>
                 </div>
                 <ViewBook onRowClick={this.onClick} />
-                <Modal
+                { this.state.isOpen ?
+                    <Modal
                     title={`book: ${this.state.record ? this.state.record._id : ""}`}
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
@@ -61,7 +62,7 @@ class Books extends Component {
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
                     {this.state.viewMode ? <BooksInfo currentData={this.state.record}/> : <EditBook closePopup={this.handleOk} currentData={this.state.record}/> }
-                </Modal>
+                </Modal> : null }
             </>
         )
     }

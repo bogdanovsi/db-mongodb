@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+const renderWriter = (writer) => `${writer != null ? writer._id : '---'}`
+
 const BooksInfo = ({ currentData }) => {
 
   return (
@@ -11,6 +13,7 @@ const BooksInfo = ({ currentData }) => {
         <p>fee: {currentData.fee}</p>
         <p>publication_date: {currentData.publication_date}</p>
         <p>selling_price: {currentData.selling_price}</p>
+        <p>writer: {renderWriter(currentData.writer)}</p>
       </>
   );
 };

@@ -18,10 +18,8 @@ class SelectCollection extends Component {
             if (!res.ok) { throw res; }
             return res.json();
         })
-        .then(res => {
-          this.setState({
-            items: res
-          })
+        .then(items => {
+          this.setState({items})
         })
     }
 
@@ -42,7 +40,7 @@ class SelectCollection extends Component {
                 {
                     this.state.items.map((w,i) => {
                         return (
-                            <Option key={i} value={w._id}>{this.props.renderValue(w)}</Option>
+                            <Option key={w._id} value={w._id}>{this.props.renderValue(w)}</Option>
                         )
                     })
                 }

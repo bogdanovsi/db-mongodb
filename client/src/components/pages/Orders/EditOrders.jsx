@@ -1,5 +1,5 @@
-import React, { Component, useForm } from 'react';
-import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
+import React from 'react';
+import { Form, Button, DatePicker, InputNumber } from 'antd';
 import SelectCollection from '../../SelectWriters';
 import moment from 'moment';
 
@@ -22,6 +22,7 @@ const tailLayout = {
 
 const EditOrders = ({currentData, closePopup}) => {
   const [form] = Form.useForm();
+
   const onFinish = values => {    
     fetch(`/orders/${currentData._id}`, {
         method: 'PUT',
@@ -51,6 +52,7 @@ const EditOrders = ({currentData, closePopup}) => {
 
   return (
     <Form
+      form={form}
       action="order"
       method="post"
       {...layout}
@@ -61,7 +63,7 @@ const EditOrders = ({currentData, closePopup}) => {
     >
       <SelectCollection 
           label="Customer"
-          name="customer"
+          name={["customer", "_id"]}
           route="customers"
           renderValue={(w) => {
             return `${w.customer_name}`
@@ -70,7 +72,7 @@ const EditOrders = ({currentData, closePopup}) => {
 
       <SelectCollection 
           label="Book"
-          name="book"
+          name={["book", "_id"]}
           route="books"
           renderValue={(w) => {
             return `${w.name}`
@@ -86,10 +88,9 @@ const EditOrders = ({currentData, closePopup}) => {
             message: 'Please input receipt date',
           },
         ]}
-      >
+      > 
         <DatePicker />
       </Form.Item>
-
       
       <Form.Item
         label="Completion date"

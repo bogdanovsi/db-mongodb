@@ -17,7 +17,6 @@ class Orders extends Component {
             data: []
         }
     }
-
     
     onClick = (record) => {
         this.setState({ isOpen: true, record });
@@ -26,8 +25,9 @@ class Orders extends Component {
             headers: {
             'Content-Type': 'application/json;charset=utf-8'
           },
-          }).then(res => res.json())
-            .then(data => this.setState({ data: data }))
+        })
+        .then(res => res.json())
+        .then(data => this.setState({ data: [data] }))
     }
 
     handleOk = e => {
@@ -59,7 +59,7 @@ class Orders extends Component {
                 </div>
                 <ViewOrders onRowClick={this.onClick}/>
                 <Modal
-                    title={`order: ${this.state.record._id || ""}`}
+                    title={`order: ${this.state.record ? this.state.record._id : ''}`}
                     visible={this.state.isOpen}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
@@ -68,7 +68,11 @@ class Orders extends Component {
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
-                    { this.state.viewMode ? <OrdersInfo currentData={this.state.record} costData={this.state.data}/> : <EditOrders closePopup={this.handleOk} currentData={this.state.record}/>}
+                    { 
+                        this.state.viewMode ? 
+                            <OrdersInfo currentData={this.state.record} costData={this.state.data}/> : 
+                            <EditOrders currentData={this.state.record} closePopup={this.handleOk} />
+                    }
                 </Modal>
             </>
         )

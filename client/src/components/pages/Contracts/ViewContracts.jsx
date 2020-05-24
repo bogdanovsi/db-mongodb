@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
 const { Column } = Table;
-import { renderWriter } from '../../../utils/renderColumns';
+import { renderColumnWriter } from '../../../utils/renderColumns';
 import BaseView from '../../BaseTable/BaseView';
 
 const ViewContracts = ({ onRowClick }) => {
@@ -12,7 +12,7 @@ const ViewContracts = ({ onRowClick }) => {
             <Column title="expiration_date" dataIndex="expiration_date" key="expiration_date" />
             <Column title="annulment" dataIndex="annulment" key="annulment" />
             <Column title="annulment_date" dataIndex="annulment_date" key="annulment_date" />
-            <Column title="writer" dataIndex="writer" key="writer" render={renderWriter} />
+            <Column title="writer" dataIndex="writer" key="writer" render={renderColumnWriter} />
         </BaseView>
     )
 };

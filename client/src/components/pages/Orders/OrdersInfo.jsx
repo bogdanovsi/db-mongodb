@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Table, Tag, Space } from 'antd';
-
-const { Column, ColumnGroup } = Table;
+import { Table } from 'antd';
+import { renderBook, renderCustomer } from '../../../utils/renderColumns';
+const { Column } = Table;
 
 class OrdersInfo extends Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class OrdersInfo extends Component {
     return (
       <>
         <div>
-          <p>book: {currentData.book}</p>
-          <p>customer: {currentData.customer}</p>
-          <p>receipt_date: {currentData.receipt_date}</p>
-          <p>completion_date: {currentData.completion_date}</p>
+          <p>book: {currentData ? renderBook(currentData.book) : '-'}</p>
+          <p>customer: {currentData ? renderCustomer(currentData.customer) : '-'}</p>
+          <p>receipt_date: {currentData ? currentData.receipt_date : '-'}</p>
+          <p>completion_date: {currentData ? currentData.completion_date : '-'}</p>
         </div>
         <Table dataSource={costData}>
           <Column title="Full cost" dataIndex="full_cost" key="full_cost" />

@@ -66,9 +66,9 @@ const EditContracts = ({currentData, closePopup}) => {
     >
       <SelectCollection 
         label="Writer"
-        name="writer"
+        name={["writer", "_id"]}
         route="writers"
-        value={currentData.writerData != null ? currentData.writerData._id : null}
+        value={(currentData && currentData.writer) != null ? currentData.writerData._id : null}
         renderValue={(w) => {
           return `${w.surname} ${w.name}`
         }}
