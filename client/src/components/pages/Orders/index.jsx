@@ -14,7 +14,7 @@ class Orders extends Component {
             isOpen: false,
             record: '',
             viewMode: true,
-            data: ''
+            data: []
         }
     }
 

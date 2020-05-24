@@ -40,12 +40,11 @@ class SelectCollection extends Component {
             >
                 <Select allowClear>
                 {
-                    this.state.items ? this.state.items.map((w,i) => {
-                    return (
-                        // 
-                        <Option key={i} value={w._id}>{this.props.renderValue(w)}</Option>
-                    )
-                    }) : null
+                    this.state.items.map((w,i) => {
+                        return (
+                            <Option key={i} value={w._id}>{this.props.renderValue(w)}</Option>
+                        )
+                    })
                 }
                 </Select>
             </Form.Item>
