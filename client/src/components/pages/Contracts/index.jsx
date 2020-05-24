@@ -23,15 +23,13 @@ class Contracts extends Component {
 
     handleOk = e => {
         this.setState({
-            isOpen: false,
-            record: ''
+            isOpen: false
         });
     };
     
     handleCancel = e => {
         this.setState({
-            isOpen: false,
-            record: ''
+            isOpen: false
         });
     };
 

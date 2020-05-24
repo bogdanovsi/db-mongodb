@@ -18,12 +18,16 @@ class Books extends Component {
             record: '',
             viewMode: true
         }
+
+        this.viewRef = React.createRef();
     }
     onClick = (record) => {
         this.setState({ isOpen: true, record });
     }
 
     handleOk = e => {
+        this.viewRef.current.updateData();
+        
         this.setState({
             isOpen: false,
             record: ''
@@ -49,7 +53,7 @@ class Books extends Component {
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'}/>
                 </div>
-                <ViewBook onRowClick={this.onClick} />
+                <ViewBook ref={this.viewRef} onRowClick={this.onClick} />
                 { this.state.isOpen ?
                     <Modal
                     title={`book: ${this.state.record ? this.state.record._id : ""}`}

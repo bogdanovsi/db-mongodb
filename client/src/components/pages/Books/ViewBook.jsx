@@ -4,9 +4,8 @@ const { Column } = Table;
 import { renderColumnWriter } from '../../../utils/renderColumns';
 import BaseView from '../../BaseTable/BaseView';
 
-const ViewBook = ({ onRowClick }) => {
-    return (
-        <BaseView route={'books'} onRowClick={onRowClick}>
+const ViewBook = React.forwardRef(({ onRowClick }, ref) => (
+        <BaseView ref={ref} route={'books'} onRowClick={onRowClick}>
             <Column title="book_chiper" dataIndex="book_chiper" key="book_chiper" />
             <Column title="Book name" dataIndex="name" key="name" />
             <Column title="circulation" dataIndex="circulation" key="circulation" />
@@ -17,6 +16,6 @@ const ViewBook = ({ onRowClick }) => {
             <Column title="writer" dataIndex="writer" key="writer" render={renderColumnWriter} />
         </BaseView>
     )
-};
+);
 
 export default ViewBook;
