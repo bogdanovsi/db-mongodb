@@ -5,7 +5,7 @@ const { Option } = Select;
 class SelectCollection extends Component {
     state = { items: [] }
 
-    componentWillMount() {
+    componentDidMount() {
         fetch(`/${this.props.route}/all`,
             {
                 headers: {

@@ -52,7 +52,10 @@ const BaseView = ({route, onRowClick, children}) => {
                 let data = { key: i }
 
                 for(let key in item) {
-                    if(DATEFORMAT.test(item[key])) {
+                    if(Array.isArray(item[key])) {
+                        data[key] = item[key]
+                        data['writerData'] = item[key][0];
+                    } else if(DATEFORMAT.test(item[key])) {
                         data[key] = moment(item[key]).format(DATE_FORMAT)
                     } else {
                         data[key] = item[key]
