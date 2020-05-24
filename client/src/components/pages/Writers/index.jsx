@@ -3,6 +3,7 @@ import BaseTable from '../../BaseTable';
 import AddWriter from './AddWriter';
 import EditWriter from './EditWriter';
 import WritersInfo from './WritersInfo';
+import ViewWriters from './ViewWriters';
 import ModalButton from '../../ModalButton';
 import { Modal, Button } from 'antd';
 
@@ -62,11 +63,10 @@ class Writers extends Component {
     render() {
         return (
             <>
-                <h2 style={{textAlign: 'center'}}>Writers</h2>
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new order'} formComponent={AddWriter} actionType={'Add'}/>
                 </div>
-                <BaseTable route={"writers"} onRowClick={this.onClick}/>
+                <ViewWriters onRowClick={this.onClick} />
                 <Modal
                     title={`writer: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}

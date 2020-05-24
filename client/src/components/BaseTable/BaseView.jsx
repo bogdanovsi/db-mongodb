@@ -38,7 +38,7 @@ const BaseView = ({route, onRowClick, children}) => {
                 return data
             }))
         })
-    })
+    }, [])
 
     return (
         <Table

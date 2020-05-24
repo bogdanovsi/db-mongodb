@@ -10,7 +10,7 @@ import Writers from './pages/Writers';
 const RouterList = () => {
     return (
         <Switch>
-            <Route exact path='/' component={Home}/>
+            <Route exact path='/' component={Books}/>
             <Route path='/books' component={Books}/>
             <Route path='/contracts' component={Contracts}/>
             <Route path='/customers' component={Customers}/>

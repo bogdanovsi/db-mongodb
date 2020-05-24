@@ -5,6 +5,7 @@ import ModalButton from '../../ModalButton';
 import EditCustomers from './EditCustomers';
 import { Modal, Button } from 'antd';
 import CustomerInfo from './CustomerInfo';
+import ViewCustomers from './ViewCustomers';
 
 class Customers extends Component {
     constructor(props) {
@@ -43,11 +44,10 @@ class Customers extends Component {
     render() {
         return (
             <>
-                <h2 style={{textAlign: 'center'}}>Customers</h2>
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new customer'} formComponent={AddCustomer} actionType={'Add'}/>
                 </div>
-                <BaseTable route={"customers"} onRowClick={this.onClick}/>
+                <ViewCustomers onRowClick={this.onClick}/>
                 <Modal
                     title={`customer: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}

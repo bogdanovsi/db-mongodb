@@ -46,7 +46,6 @@ class Books extends Component {
     render() {
         return (
             <>
-                <h2 style={{textAlign: 'center'}}>Books</h2>
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'}/>
                 </div>

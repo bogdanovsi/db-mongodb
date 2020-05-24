@@ -15,7 +15,7 @@ const ViewBook = ({ onRowClick }) => {
             <Column title="selling_price" dataIndex="circulation" key="circulation" />
             <Column title="fee" dataIndex="circulation" key="circulation" />
             <Column title="writer" dataIndex="writer" key="writer" render={
-                (text, record) => `${record.name}`
+               (all, record) => all.length > 0 ? `${all[0].name} ${all[0].surname}` : '-'
             } />
         </BaseView>
     )

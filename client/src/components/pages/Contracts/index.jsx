@@ -6,7 +6,7 @@ import EditContracts from './EditContracts';
 import { Modal } from 'antd';
 import { Button } from 'antd';
 import ContractsInfo from './ContractsInfo';
-
+import ViewContracts from './ViewContracts';
 
 class Contracts extends Component {
     constructor(props) {
@@ -45,15 +45,10 @@ class Contracts extends Component {
     render() {
         return (
             <>
-                <h2 style={{textAlign: 'center'}}>Contracts</h2>
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new order'} formComponent={AddNewContract} actionType={'Add'}/>
                 </div>
-                <BaseTable 
-                    route={"contracts"} 
-                    onRowClick={this.onClick}
-                    renderLookup={(writer) => `${writer.name} ${writer.surname}`}
-                />
+                <ViewContracts onRowClick={this.onClick} />
                 <Modal
                     title={`contract: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}

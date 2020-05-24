@@ -5,29 +5,22 @@ import Menu from './Menu';
 import RouterList from './RouterList';
 
 const styles = {
-   container: {
-      padding: '24px',
-      height: '100vh',
-      background: 'beige',
-      display: 'flex'
-   },
-   main: {
-      width: '100vw',
-      height: '100vh',
-      background: 'cornflowerblue'
-   }
+   
 }
 
 export default class App extends Component {
    render() {
       return (
          <>
-            <div className="main" style={styles.main} >
-               <div style={styles.container} >
-                  <div style={{width: '10vw'}}>
+            <div className="container main" style={styles.main} >
+               <div>
+                  <h1>Издательский центр "Печать"</h1>
+               </div>
+               <div className="work-area" >
+                  <div style={{ marginBottom: 15 }}>
                      <Menu/>
                   </div>
-                  <div style={{width: '90vw'}}>
+                  <div>
                      <RouterList />
                   </div>
                </div>

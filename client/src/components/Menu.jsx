@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Menu, Button } from 'antd';
 import {
   MenuUnfoldOutlined,
@@ -15,9 +15,9 @@ import {
 
 const { SubMenu } = Menu;
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
   state = {
-    collapsed: true,
+    collapsed: false,
   };
 
   toggleCollapsed = () => {
@@ -28,53 +28,40 @@ export default class Sidebar extends React.Component {
 
   render() {
     return (
-      <div style={{width: 80, height: 80}}>
-        <div style={{ width: 256, position: 'absolute', zIndex: 1000 }}>     
-            <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-              {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
-            </Button>
+      <div>
+        <div>     
             <Menu
               defaultSelectedKeys={['1']}
-              mode="inline"
-              theme="dark"
+              mode="horizontal"
               onClick={this.onMenuClick}
-              inlineCollapsed={this.state.collapsed}
+              defaultOpenKeys={['books']}
               >
-              <Menu.Item key="1" icon={<PieChartOutlined />}>
-                <Link to="/">
-                    Home
-                </Link>
+              <Menu.Item icon={<BookOutlined />} key="books" onClick={() => this.props.history.push('/books')}>
+                Books
               </Menu.Item>
-              <SubMenu key="sub1" icon={<DatabaseOutlined />} title="Collections">
-                  <Menu.Item icon={<BookOutlined />} key="2">
-                    <Link to="/books">
-                      Books
-                    </Link>
-                  </Menu.Item>
-                  <Menu.Item icon={<EditOutlined />} key="3">
-                    <Link to="/writers">
-                      Writers
-                    </Link>
-                  </Menu.Item>
-                  <Menu.Item icon={<CopyOutlined />} key="4">
-                    <Link to="/contracts">
-                      Contracts
-                    </Link>
-                  </Menu.Item>
-                  <Menu.Item icon={<OrderedListOutlined />} key="5">
-                    <Link to="/orders">
-                      Orders
-                    </Link> 
-                  </Menu.Item>
-                  <Menu.Item icon={<GoldOutlined />} key="6">
-                    <Link to="/customers">
-                      Customers
-                    </Link>
-                  </Menu.Item>
-              </SubMenu>
+              <Menu.Item icon={<EditOutlined />} key="writers" onClick={() => this.props.history.push('/writers')}>
+                Writers
+              </Menu.Item>
+              <Menu.Item icon={<CopyOutlined />} key="contracts"
+                onClick={() => this.props.history.push('/contracts')}
+              >
+                Contracts
+              </Menu.Item>
+              <Menu.Item icon={<OrderedListOutlined />} key="orders"
+                onClick={() => this.props.history.push('/orders')}
+              >
+                Orders
+              </Menu.Item>
+              <Menu.Item icon={<GoldOutlined />} key="customers"
+                onClick={() => this.props.history.push('/customers')}
+              >
+                Customers
+              </Menu.Item>
             </Menu>
         </div>
       </div>      
     );
   }
 }
+
+export default withRouter(Sidebar)
