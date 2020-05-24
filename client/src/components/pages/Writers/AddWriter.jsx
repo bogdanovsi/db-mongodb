@@ -17,6 +17,7 @@ const tailLayout = {
 };
 
 const AddWriter = ({ closePopup }) => {
+  const [form] = Form.useForm();
   const onFinish = values => {    
     fetch('/writers/', {
         method: 'POST',
@@ -24,8 +25,8 @@ const AddWriter = ({ closePopup }) => {
         'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify(values)
-    });
-    closePopup()();
+    }).then(() => form.resetFields());
+    closePopup();
   };
 
 
@@ -39,6 +40,7 @@ const AddWriter = ({ closePopup }) => {
       method="post"
       {...layout}
       name="basic"
+      form={form}
       initialValues={{
         remember: true,
       }}

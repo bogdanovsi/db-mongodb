@@ -18,6 +18,7 @@ const tailLayout = {
 };
 
 const AddOrderForm = ({ closePopup }) => {
+  const [form] = Form.useForm();
   const onFinish = values => {    
     fetch('/orders/', {
         method: 'POST',
@@ -25,7 +26,7 @@ const AddOrderForm = ({ closePopup }) => {
         'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify(values)
-    });
+    }).then(() => form.resetFields());
     closePopup();
   };
 
@@ -38,6 +39,7 @@ const AddOrderForm = ({ closePopup }) => {
       action="order"
       method="post"
       {...layout}
+      form={form}
       name="basic"
       initialValues={{
         remember: true,
