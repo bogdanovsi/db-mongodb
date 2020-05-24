@@ -46,7 +46,7 @@ class Contracts extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new order'} formComponent={AddNewContract} actionType={'Add'}/>
+                    <ModalButton tableType={'Add new contract'} formComponent={AddNewContract} actionType={'Add'}/>
                 </div>
                 <ViewContracts onRowClick={this.onClick} />
                 <Modal

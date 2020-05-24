@@ -17,6 +17,7 @@ const tailLayout = {
 };
 
 const AddCustomer = ({ closePopup }) => {
+  const [form] = Form.useForm();
   const onFinish = values => {    
     fetch('/customers/', {
         method: 'POST',
@@ -24,7 +25,7 @@ const AddCustomer = ({ closePopup }) => {
         'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify(values)
-    });
+    }).then(() => form.resetFields());
     closePopup();
   };
 
@@ -37,6 +38,7 @@ const AddCustomer = ({ closePopup }) => {
       action="customer"
       method="post"
       {...layout}
+      form={form}
       name="basic"
       initialValues={{
         remember: true,
