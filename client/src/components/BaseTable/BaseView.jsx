@@ -10,6 +10,30 @@ import DeleteCell from './DeleteCell';
 const BaseView = ({route, onRowClick, children}) => {
     const [currentData, setCurrentData] = useState([]);
 
+    const handleDelete = key => {
+        const dataSource = [...currentData];
+        let row = dataSource.find(item => item.key === key);
+        fetch(`${route}?_id=${row._id}`, 
+        {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }  
+        })
+        .then(res => {
+            if (!res.ok) { throw res; }
+            return res.json();
+        })
+        .then(res => {
+            const checkDeleteCount = (res) => res.deletedCount && res.deletedCount > 0;
+            if(res.ok && checkDeleteCount(res)) { 
+                setCurrentData(dataSource.filter(item => item.key !== key));
+            } else {
+                console.error("Не удалось удалить элемент");
+            }
+        })
+    };
+
     useEffect(() => {
         fetch(`${route}/all`,
             {
@@ -57,7 +81,7 @@ const BaseView = ({route, onRowClick, children}) => {
                 (text, record) => (
                     <DeleteCell 
                         record={record}
-                        onConfirm={() => this.handleDelete(record.key)}
+                        onConfirm={() => handleDelete(record.key)}
                     />
                 )}
             />
