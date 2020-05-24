@@ -17,7 +17,7 @@ const tailLayout = {
   },
 };
 
-const AddOrderForm = () => {
+const AddOrderForm = ({ closePopup }) => {
   const onFinish = values => {    
     fetch('/orders/', {
         method: 'POST',
@@ -26,6 +26,7 @@ const AddOrderForm = () => {
       },
       body: JSON.stringify(values)
     });
+    closePopup();
   };
 
   const onFinishFailed = errorInfo => {

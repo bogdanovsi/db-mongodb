@@ -59,7 +59,7 @@ class Contracts extends Component {
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
-                    {this.state.viewMode ? <ContractsInfo currentData={this.state.record}/> : <EditContracts currentData={this.state.record}/> }
+                    {this.state.viewMode ? <ContractsInfo currentData={this.state.record}/> : <EditContracts closePopup={this.handleOk} currentData={this.state.record}/> }
                 </Modal>
             </>
         )

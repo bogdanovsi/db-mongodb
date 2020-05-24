@@ -16,7 +16,7 @@ const tailLayout = {
   },
 };
 
-const AddCustomer = () => {
+const AddCustomer = ({ closePopup }) => {
   const onFinish = values => {    
     fetch('/customers/', {
         method: 'POST',
@@ -25,6 +25,7 @@ const AddCustomer = () => {
       },
       body: JSON.stringify(values)
     });
+    closePopup();
   };
 
   const onFinishFailed = errorInfo => {

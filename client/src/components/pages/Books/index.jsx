@@ -60,7 +60,7 @@ class Books extends Component {
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
-                    {this.state.viewMode ? <BooksInfo currentData={this.state.record}/> : <EditBook currentData={this.state.record}/> }
+                    {this.state.viewMode ? <BooksInfo currentData={this.state.record}/> : <EditBook closePopup={this.handleOk} currentData={this.state.record}/> }
                 </Modal>
             </>
         )

@@ -17,7 +17,7 @@ const tailLayout = {
   },
 };
 
-const AddBookForm = () => {
+const AddBookForm = ({ closePopup }) => {
   const onFinish = values => {    
     fetch('/books/', {
         method: 'POST',
@@ -26,6 +26,7 @@ const AddBookForm = () => {
       },
       body: JSON.stringify(values)
     });
+    closePopup();
   };
 
   const onFinishFailed = errorInfo => {

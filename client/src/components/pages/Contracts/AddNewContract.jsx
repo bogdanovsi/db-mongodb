@@ -30,6 +30,7 @@ class AddNewContract extends Component {
       },
       body: JSON.stringify(values)
     });
+    this.props.closePopup();
   };
 
   onFinishFailed = errorInfo => {

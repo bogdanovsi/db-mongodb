@@ -16,7 +16,7 @@ const tailLayout = {
   },
 };
 
-const EditWriter = ({currentData}) => {
+const EditWriter = ({currentData, closePopup }) => {
   const [form] = Form.useForm();
   const onFinish = values => {
     fetch(`/writers/${currentData._id}`, {
@@ -26,6 +26,7 @@ const EditWriter = ({currentData}) => {
       },
       body: JSON.stringify(values)
     });
+    closePopup();
   };
 
 

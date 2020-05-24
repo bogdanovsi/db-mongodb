@@ -22,7 +22,7 @@ const tailLayout = {
 
 const dateFormat = 'DD-MM-YYYY';
 
-const EditContracts = ({currentData}) => {
+const EditContracts = ({currentData, closePopup}) => {
   console.log(currentData.annulment_date);
   const [form] = Form.useForm();
   const onFinish = values => {    
@@ -33,6 +33,7 @@ const EditContracts = ({currentData}) => {
       },
       body: JSON.stringify(values)
     });
+    closePopup();
   };
 
   const onFinishFailed = errorInfo => {

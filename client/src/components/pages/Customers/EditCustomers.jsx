@@ -20,7 +20,7 @@ const tailLayout = {
   },
 };
 
-const EditCustomers = ({currentData}) => {
+const EditCustomers = ({currentData, closePopup}) => {
   const [form] = Form.useForm();
   const onFinish = values => {    
     fetch(`/customers/${currentData._id}`, {
@@ -30,6 +30,7 @@ const EditCustomers = ({currentData}) => {
       },
       body: JSON.stringify(values)
     });
+    closePopup();
   };
 
   const onFinishFailed = errorInfo => {

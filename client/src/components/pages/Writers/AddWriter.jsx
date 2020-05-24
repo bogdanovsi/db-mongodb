@@ -16,7 +16,7 @@ const tailLayout = {
   },
 };
 
-const AddWriter = () => {
+const AddWriter = ({ closePopup }) => {
   const onFinish = values => {    
     fetch('/writers/', {
         method: 'POST',
@@ -25,6 +25,7 @@ const AddWriter = () => {
       },
       body: JSON.stringify(values)
     });
+    closePopup()();
   };
 
 

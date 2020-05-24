@@ -58,7 +58,7 @@ class Customers extends Component {
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
                         { this.state.viewMode ? 'Edit' : 'Back to info' }
                     </Button>
-                    { this.state.viewMode ? <CustomerInfo currentData={this.state.record} /> : <EditCustomers currentData={this.state.record}/>}
+                    { this.state.viewMode ? <CustomerInfo currentData={this.state.record} /> : <EditCustomers closePopup={this.handleOk} currentData={this.state.record}/>}
                 </Modal>
             </>
         )
