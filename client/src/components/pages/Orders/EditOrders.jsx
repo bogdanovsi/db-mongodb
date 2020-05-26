@@ -62,7 +62,7 @@ const EditOrders = ({currentData, closePopup}) => {
       onFinishFailed={onFinishFailed}
     >
       <SelectCollection 
-          label="Customer"
+          label="Заказчик"
           name={["customer", "_id"]}
           route="customers"
           renderValue={(w) => {
@@ -71,7 +71,7 @@ const EditOrders = ({currentData, closePopup}) => {
         />
 
       <SelectCollection 
-          label="Book"
+          label="Книга"
           name={["book", "_id"]}
           route="books"
           renderValue={(w) => {
@@ -80,7 +80,7 @@ const EditOrders = ({currentData, closePopup}) => {
         />
 
       <Form.Item
-        label="Receipt date"
+        label="Дата создания"
         name="receipt_date"
         rules={[
           {
@@ -93,7 +93,7 @@ const EditOrders = ({currentData, closePopup}) => {
       </Form.Item>
       
       <Form.Item
-        label="Completion date"
+        label="Дата завершения"
         name="completion_date"
         rules={[
           {
@@ -106,7 +106,7 @@ const EditOrders = ({currentData, closePopup}) => {
       </Form.Item>
 
       <Form.Item
-        label="Copies number"
+        label="Количество"
         name="oredered_book_copies_number"
         rules={[
           {

@@ -65,7 +65,7 @@ const EditContracts = ({currentData, closePopup}) => {
       onFinishFailed={onFinishFailed}
     >
       <SelectCollection 
-        label="Writer"
+        label="Писатель"
         name={["writer", "_id"]}
         route="writers"
         value={(currentData && currentData.writer) != null ? currentData.writerData._id : null}
@@ -75,7 +75,7 @@ const EditContracts = ({currentData, closePopup}) => {
       />
 
       <Form.Item
-        label="Contract Number"
+        label="Номер контракта"
         name="contract_number"
         rules={[
           {
@@ -91,7 +91,7 @@ const EditContracts = ({currentData, closePopup}) => {
       </Form.Item>
 
       <Form.Item
-        label="Created"
+        label="Дата создания"
         name="created"
         rules={[
           {
@@ -105,7 +105,7 @@ const EditContracts = ({currentData, closePopup}) => {
 
       
       <Form.Item
-        label="Expiration date"
+        label="Дата истичения"
         name="expiration_date"
         rules={[
           {
@@ -118,7 +118,7 @@ const EditContracts = ({currentData, closePopup}) => {
       </Form.Item>
 
       <Form.Item
-        label="Annulment"
+        label="Аннулирование"
         name="annulment"
         valuePropName="checked"
       >
@@ -126,7 +126,7 @@ const EditContracts = ({currentData, closePopup}) => {
       </Form.Item>
 
       <Form.Item
-        label="Annulment date"
+        label="Дата аннулирования"
         name="annulment_date"
       >
         <DatePicker format={dateFormat} />

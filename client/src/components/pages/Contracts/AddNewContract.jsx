@@ -51,7 +51,7 @@ class AddNewContract extends Component {
           onFinishFailed={this.onFinishFailed}
         >
           <SelectCollection 
-            label="Writer"
+            label="Писатель"
             name="writer"
             route="writers"
             renderValue={(w) => {
@@ -60,7 +60,7 @@ class AddNewContract extends Component {
           />
     
           <Form.Item
-            label="Contract Number"
+            label="Номер контракта"
             name="contract_number"
             rules={[
               {
@@ -76,7 +76,7 @@ class AddNewContract extends Component {
           </Form.Item>
     
           <Form.Item
-            label="Created"
+            label="Дата создания"
             name="created"
             rules={[
               {
@@ -90,7 +90,7 @@ class AddNewContract extends Component {
     
           
           <Form.Item
-            label="Expiration date"
+            label="Дата истичения"
             name="expiration_date"
             rules={[
               {
@@ -103,7 +103,7 @@ class AddNewContract extends Component {
           </Form.Item>
     
           <Form.Item
-            label="Annulment"
+            label="Аннулирование"
             name="annulment"
             valuePropName="checked"
           >
@@ -111,7 +111,7 @@ class AddNewContract extends Component {
           </Form.Item>
     
           <Form.Item
-            label="Annulment date"
+            label="Дата аннулирования"
             name="annulment_date"
           >
             <DatePicker />

@@ -13,14 +13,14 @@ class OrdersInfo extends Component {
     return (
       <>
         <div>
-          <p>book: {currentData ? renderBook(currentData.book) : '-'}</p>
-          <p>customer: {currentData ? renderCustomer(currentData.customer) : '-'}</p>
-          <p>receipt_date: {currentData ? currentData.receipt_date : '-'}</p>
-          <p>completion_date: {currentData ? currentData.completion_date : '-'}</p>
+          <p>Книга: {currentData ? renderBook(currentData.book) : '-'}</p>
+          <p>Заказчик: {currentData ? renderCustomer(currentData.customer) : '-'}</p>
+          <p>Дата создания: {currentData ? currentData.receipt_date : '-'}</p>
+          <p>Дата завершения: {currentData ? currentData.completion_date : '-'}</p>
         </div>
         <Table dataSource={costData}>
-          <Column title="Full cost" dataIndex="full_cost" key="full_cost" />
-          <Column title="Sell cost" dataIndex="sell_cost" key="sell_cost" />
+          <Column title="Стоимость производства" dataIndex="full_cost" key="full_cost" />
+          <Column title="Стоимость продажи" dataIndex="sell_cost" key="sell_cost" />
         </Table>
       </>
     );
