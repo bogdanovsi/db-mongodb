@@ -16,6 +16,7 @@ class Orders extends Component {
             viewMode: true,
             data: []
         }
+        this.viewRef = React.createRef();
     }
     
     onClick = (record) => {
@@ -31,6 +32,8 @@ class Orders extends Component {
     }
 
     handleOk = e => {
+        this.viewRef.current.updateData();
+
         this.setState({
             isOpen: false,
             record: ''
@@ -55,9 +58,9 @@ class Orders extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} actionType={'Add'}/>
+                    <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} actionType={'Add'} closePopup={this.handleOk}/>
                 </div>
-                <ViewOrders onRowClick={this.onClick}/>
+                <ViewOrders ref={this.viewRef} onRowClick={this.onClick}/>
                 <Modal
                     title={`order: ${this.state.record ? this.state.record._id : ''}`}
                     visible={this.state.isOpen}

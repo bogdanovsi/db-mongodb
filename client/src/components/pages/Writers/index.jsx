@@ -17,9 +17,9 @@ class Writers extends Component {
             data: '',
             contract: ''
         }
-    }
 
-    
+        this.viewRef = React.createRef();
+    }
 
     onClick = (record) => {
         this.setState({ isOpen: true, record });
@@ -41,6 +41,10 @@ class Writers extends Component {
     }
 
     handleOk = e => {
+        console.log('handleOk');
+
+        this.viewRef.current.updateData();
+
         this.setState({
             isOpen: false,
             record: ''
@@ -66,7 +70,7 @@ class Writers extends Component {
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new writer'} formComponent={AddWriter} actionType={'Add'} closePopup={this.handleOk}/>
                 </div>
-                <ViewWriters onRowClick={this.onClick} />
+                <ViewWriters ref={this.viewRef} onRowClick={this.onClick} />
                 <Modal
                     title={`writer: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}

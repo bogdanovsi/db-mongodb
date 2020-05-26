@@ -15,12 +15,15 @@ class Customers extends Component {
             record: '',
             viewMode: true
         }
+        this.viewRef = React.createRef();
     }
     onClick = (record) => {
         this.setState({ isOpen: true, record });
     }
 
     handleOk = e => {
+        this.viewRef.current.updateData();
+
         this.setState({
             isOpen: false,
             record: ''
@@ -45,9 +48,9 @@ class Customers extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new customer'} formComponent={AddCustomer} actionType={'Add'}/>
+                    <ModalButton tableType={'Add new customer'} formComponent={AddCustomer} actionType={'Add'} closePopup={this.handleOk}/>
                 </div>
-                <ViewCustomers onRowClick={this.onClick}/>
+                <ViewCustomers ref={this.viewRef} onRowClick={this.onClick}/>
                 <Modal
                     title={`customer: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}

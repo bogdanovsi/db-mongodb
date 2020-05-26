@@ -37,7 +37,7 @@ export default class ModalButton extends React.Component {
           onCancel={this.handleCancel}
           footer={null}
         >
-          <this.props.formComponent closePopup={this.handleOk}/>
+          <this.props.formComponent closePopup={() => { this.handleOk(); this.props.closePopup && this.props.closePopup(); }}/>
         </Modal>
       </div>
     );

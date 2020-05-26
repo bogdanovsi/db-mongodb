@@ -4,9 +4,8 @@ const { Column } = Table;
 
 import BaseView from '../../BaseTable/BaseView';
 
-const ViewWriters = ({ onRowClick }) => {
-    return (
-        <BaseView route={'writers'} onRowClick={onRowClick}>
+const ViewWriters = React.forwardRef(({ onRowClick }, ref) => (
+    <BaseView ref={ref}  route={'writers'} onRowClick={onRowClick}>
             <Column title="passport_number" dataIndex="passport_number" key="passport_number" />
             <Column title="surname" dataIndex="surname" key="surname" />
             <Column title="name" dataIndex="name" key="name" />
@@ -15,6 +14,6 @@ const ViewWriters = ({ onRowClick }) => {
             <Column title="phone" dataIndex="phone" key="phone" />            
         </BaseView>
     )
-};
+);
 
 export default ViewWriters;
