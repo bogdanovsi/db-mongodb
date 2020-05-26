@@ -47,7 +47,7 @@ const AddCustomer = ({ closePopup }) => {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="Name"
+        label="ФИО заказчика"
         name="customer_name"
         rules={[
           {
@@ -60,7 +60,7 @@ const AddCustomer = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Address"
+        label="Адресс"
         name="address"
         rules={[
           {
@@ -73,7 +73,7 @@ const AddCustomer = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Phone number"
+        label="Номер телефона"
         name="phone_number"
         rules={[
           {
@@ -87,7 +87,7 @@ const AddCustomer = ({ closePopup }) => {
 
       
       <Form.Item
-        label="Contact person"
+        label="Контактоне лицо"
         name="contact_person"
         rules={[
           {

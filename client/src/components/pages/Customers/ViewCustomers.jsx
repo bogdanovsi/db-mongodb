@@ -6,10 +6,10 @@ import BaseView from '../../BaseTable/BaseView';
 
 const ViewCustomers = React.forwardRef(({ onRowClick }, ref) => (
         <BaseView ref={ref} route={'customers'} onRowClick={onRowClick}>
-            <Column title="customer_name" dataIndex="customer_name" key="customer_name" />
-            <Column title="address" dataIndex="address" key="address" />
-            <Column title="phone_number" dataIndex="phone_number" key="phone_number" />
-            <Column title="contact_person" dataIndex="contact_person" key="contact_person" />
+            <Column title="ФИО заказчика" dataIndex="customer_name" key="customer_name" />
+            <Column title="Адресс" dataIndex="address" key="address" />
+            <Column title="Номер телефона" dataIndex="phone_number" key="phone_number" />
+            <Column title="Контактоне лицо" dataIndex="contact_person" key="contact_person" />
         </BaseView>
     )
 );

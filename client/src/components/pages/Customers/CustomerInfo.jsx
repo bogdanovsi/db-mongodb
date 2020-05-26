@@ -5,10 +5,10 @@ const CustomerInfo = ({ currentData }) => {
 
   return (
       <>
-        <p>customer name : {currentData.customer_name}</p>
-        <p>address: {currentData.address}</p>
-        <p>phone_number: {currentData.phone_number}</p>
-        <p>contact_person: {currentData.contact_person}</p>
+        <p>ФИО заказчика: {currentData.customer_name}</p>
+        <p>Адресс: {currentData.address}</p>
+        <p>Номер телефона: {currentData.phone_number}</p>
+        <p>Контактоне лицо: {currentData.contact_person}</p>
       </>
   );
 };
