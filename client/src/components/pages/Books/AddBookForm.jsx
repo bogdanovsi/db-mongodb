@@ -49,7 +49,7 @@ const AddBookForm = ({ closePopup }) => {
       onFinishFailed={onFinishFailed}
     >
       <SelectCollection 
-        label="Writer"
+        label="Писатель"
         name="writer"
         route="writers"
         renderValue={(w) => {
@@ -58,7 +58,7 @@ const AddBookForm = ({ closePopup }) => {
       />
 
       <Form.Item
-        label="Name"
+        label="Название книги"
         name="name"
         rules={[
           {
@@ -71,7 +71,7 @@ const AddBookForm = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Chiper"
+        label="Шифр книги"
         name="book_chiper"
         rules={[
           {
@@ -84,7 +84,7 @@ const AddBookForm = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Circulation"
+        label="Тираж"
         name="circulation"
         rules={[
           {
@@ -97,7 +97,7 @@ const AddBookForm = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Publication date"
+        label="Дата публикации"
         name="publication_date"
         rules={[
           {
@@ -110,7 +110,7 @@ const AddBookForm = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Cost price"
+        label="Цена изготовления"
         name="cost_price"
         rules={[
           {
@@ -126,7 +126,7 @@ const AddBookForm = ({ closePopup }) => {
       </Form.Item>
       
       <Form.Item
-        label="Selling price"
+        label="Цена продажи"
         name="selling_price"
         rules={[
           {
@@ -142,7 +142,7 @@ const AddBookForm = ({ closePopup }) => {
       </Form.Item>
       
       <Form.Item
-        label="Fee"
+        label="Гонорар"
         name="fee"
         rules={[
           {

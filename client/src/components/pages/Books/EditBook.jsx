@@ -58,7 +58,7 @@ const EditBook = ({currentData, closePopup}) => {
         onFinishFailed={onFinishFailed}
     >
     <SelectCollection 
-      label="Writer"
+      label="Писатель"
       name={["writer", "_id"]}
       route="writers"
       value={currentData.writer != null ? currentData.writer._id : null}
@@ -67,7 +67,7 @@ const EditBook = ({currentData, closePopup}) => {
       }}
     />
     <Form.Item
-      label="Name"
+      label="Название книги"
       name="name"
       rules={[
         {
@@ -80,7 +80,7 @@ const EditBook = ({currentData, closePopup}) => {
     </Form.Item>
 
     <Form.Item
-      label="Chiper"
+      label="Шифр книги"
       name="book_chiper"
       rules={[
         {
@@ -93,7 +93,7 @@ const EditBook = ({currentData, closePopup}) => {
     </Form.Item>
 
     <Form.Item
-      label="Circulation"
+      label="Тираж"
       name="circulation"
       rules={[
         {
@@ -106,7 +106,7 @@ const EditBook = ({currentData, closePopup}) => {
     </Form.Item>
 
     <Form.Item
-      label="Publication date"
+      label="Дата публикации"
       name="publication_date"
       rules={[
         {
@@ -119,7 +119,7 @@ const EditBook = ({currentData, closePopup}) => {
     </Form.Item>
 
     <Form.Item
-      label="Cost price"
+      label="Цена изготовления"
       name="cost_price"
       rules={[
         {
@@ -135,7 +135,7 @@ const EditBook = ({currentData, closePopup}) => {
     </Form.Item>
     
     <Form.Item
-      label="Selling price"
+      label="Цена продажи"
       name="selling_price"
       rules={[
         {
@@ -151,7 +151,7 @@ const EditBook = ({currentData, closePopup}) => {
     </Form.Item>
     
     <Form.Item
-      label="Fee"
+      label="Гонорар"
       name="fee"
       rules={[
         {

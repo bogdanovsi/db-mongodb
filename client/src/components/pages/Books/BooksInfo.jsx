@@ -6,14 +6,14 @@ const BooksInfo = ({ currentData }) => {
 
   return (
       <>
-        <p>name: {currentData.name}</p>
-        <p>book_chiper: {currentData.book_chiper}</p>
-        <p>circulation: {currentData.circulation}</p>
-        <p>cost_price: {currentData.cost_price}</p>
-        <p>fee: {currentData.fee}</p>
-        <p>publication_date: {currentData.publication_date}</p>
-        <p>selling_price: {currentData.selling_price}</p>
-        <p>writer: {renderWriter(currentData.writer)}</p>
+        <p>Название книги: {currentData.name}</p>
+        <p>Шифр книги: {currentData.book_chiper}</p>
+        <p>Тираж: {currentData.circulation}</p>
+        <p>Цена изготовления: {currentData.cost_price}</p>
+        <p>Гонорар: {currentData.fee}</p>
+        <p>Дата публикации: {currentData.publication_date}</p>
+        <p>Цена продажи: {currentData.selling_price}</p>
+        <p>Писатель: {renderWriter(currentData.writer)}</p>
       </>
   );
 };
