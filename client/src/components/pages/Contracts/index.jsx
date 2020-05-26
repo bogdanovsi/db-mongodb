@@ -16,12 +16,16 @@ class Contracts extends Component {
             record: '',
             viewMode: true
         }
+
+        this.viewRef = React.createRef();
     }
     onClick = (record) => {
         this.setState({ isOpen: true, record });
     }
 
     handleOk = e => {
+        this.viewRef.current.updateData();
+
         this.setState({
             isOpen: false
         });
@@ -46,7 +50,7 @@ class Contracts extends Component {
                 <div className="table-btns-row">
                     <ModalButton tableType={'Add new contract'} formComponent={AddNewContract} actionType={'Add'}/>
                 </div>
-                <ViewContracts onRowClick={this.onClick} />
+                <ViewContracts ref={this.viewRef} onRowClick={this.onClick} />
                 <Modal
                     title={`contract: ${this.state.record._id || ""}`}
                     visible={this.state.isOpen}

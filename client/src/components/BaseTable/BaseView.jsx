@@ -46,8 +46,6 @@ class BaseView extends React.Component {
     };
 
     updateData = () => {
-        console.log("updateData");
-
         fetch(`${this.props.route}/all`,
             {
                 headers: {
