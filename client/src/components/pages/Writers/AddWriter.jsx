@@ -48,7 +48,7 @@ const AddWriter = ({ closePopup }) => {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="Surname"
+        label="Фамилия"
         name="surname"
         rules={[
           {
@@ -61,7 +61,7 @@ const AddWriter = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Name"
+        label="Имя"
         name="name"
         rules={[
           {
@@ -74,7 +74,7 @@ const AddWriter = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Passport number"
+        label="Номер паспорта"
         name="passport_number"
         rules={[
           {
@@ -87,7 +87,7 @@ const AddWriter = ({ closePopup }) => {
       </Form.Item>
       
       <Form.Item
-        label="Patronymic"
+        label="Отчество"
         name="patronymic"
         rules={[
           {
@@ -100,7 +100,7 @@ const AddWriter = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Address"
+        label="Адрес"
         name="address"
         rules={[
           {
@@ -113,7 +113,7 @@ const AddWriter = ({ closePopup }) => {
       </Form.Item>
 
       <Form.Item
-        label="Phone"
+        label="Телефон"
         name="phone"
         rules={[
           {
