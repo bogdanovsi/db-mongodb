@@ -22,11 +22,15 @@ const fullSell = (bookCopyCount, books) => {
     return books.reduce((price, book) => price + (book.selling_price * bookCopyCount), 0);
 }
 
-const getCostInfo = (order) => {    
+const getCostInfo = (order) => {
+    const full_cost = fullCost(order.oredered_book_copies_number, order.book);
+    const sell_cost = fullSell(order.oredered_book_copies_number, order.book);
+
     return {
         data: order,
-        full_cost: fullCost(order.oredered_book_copies_number, order.book),
-        sell_cost: fullSell(order.oredered_book_copies_number, order.book)
+        full_cost: full_cost,
+        sell_cost: sell_cost,
+        profit_cost: sell_cost - full_cost
     }
 }
 

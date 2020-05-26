@@ -21,6 +21,7 @@ class OrdersInfo extends Component {
         <Table dataSource={costData}>
           <Column title="Стоимость производства" dataIndex="full_cost" key="full_cost" />
           <Column title="Стоимость продажи" dataIndex="sell_cost" key="sell_cost" />
+          <Column title="Итоговая прибыль" dataIndex="profit_cost" key="profit_cost" />
         </Table>
       </>
     );
