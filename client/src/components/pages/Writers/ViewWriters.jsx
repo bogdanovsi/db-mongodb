@@ -6,12 +6,12 @@ import BaseView from '../../BaseTable/BaseView';
 
 const ViewWriters = React.forwardRef(({ onRowClick }, ref) => (
     <BaseView ref={ref}  route={'writers'} onRowClick={onRowClick}>
-            <Column title="passport_number" dataIndex="passport_number" key="passport_number" />
-            <Column title="surname" dataIndex="surname" key="surname" />
-            <Column title="name" dataIndex="name" key="name" />
-            <Column title="patronymic" dataIndex="patronymic" key="patronymic" />
-            <Column title="address" dataIndex="address" key="address" />
-            <Column title="phone" dataIndex="phone" key="phone" />            
+            <Column title="Номер паспорта" dataIndex="passport_number" key="passport_number" />
+            <Column title="Фамилия" dataIndex="surname" key="surname" />
+            <Column title="Имя" dataIndex="name" key="name" />
+            <Column title="Отчество" dataIndex="patronymic" key="patronymic" />
+            <Column title="Адрес" dataIndex="address" key="address" />
+            <Column title="Телефон" dataIndex="phone" key="phone" />            
         </BaseView>
     )
 );

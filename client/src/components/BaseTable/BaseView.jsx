@@ -98,7 +98,7 @@ class BaseView extends React.Component {
                 dataSource={this.state.currentData}
             >
                 {this.props.children}
-                <Column title="Delete Item" dataIndex="action" key="action" render={
+                <Column title="Удаление элемента" dataIndex="action" key="action" render={
                     (text, record) => (
                         <DeleteCell
                             record={record}

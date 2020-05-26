@@ -6,14 +6,14 @@ import BaseView from '../../BaseTable/BaseView';
 
 const ViewBook = React.forwardRef(({ onRowClick }, ref) => (
         <BaseView ref={ref} route={'books'} onRowClick={onRowClick}>
-            <Column title="book_chiper" dataIndex="book_chiper" key="book_chiper" />
-            <Column title="Book name" dataIndex="name" key="name" />
-            <Column title="circulation" dataIndex="circulation" key="circulation" />
-            <Column title="publication_date" dataIndex="publication_date" key="publication_date" />
-            <Column title="cost_price" dataIndex="cost_price" key="cost_price" />
-            <Column title="selling_price" dataIndex="selling_price" key="selling_price" />
-            <Column title="fee" dataIndex="fee" key="fee" />
-            <Column title="writer" dataIndex="writer" key="writer" render={renderColumnWriter} />
+            <Column title="Шифр книги" dataIndex="book_chiper" key="book_chiper" />
+            <Column title="Название книги" dataIndex="name" key="name" />
+            <Column title="Тираж" dataIndex="circulation" key="circulation" />
+            <Column title="Дата публикации" dataIndex="publication_date" key="publication_date" />
+            <Column title="Цена изготовления" dataIndex="cost_price" key="cost_price" />
+            <Column title="Цена продажи" dataIndex="selling_price" key="selling_price" />
+            <Column title="Гонорар" dataIndex="fee" key="fee" />
+            <Column title="Писатель" dataIndex="writer" key="writer" render={renderColumnWriter} />
         </BaseView>
     )
 );
