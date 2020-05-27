@@ -13,7 +13,7 @@ const WriterInfo = ({ currentData, booksData, contract }) => {
           <p><b>Фамилия:</b> {currentData.surname}</p>
           <p><b>Имя:</b> {currentData.name}</p>
           <p><b>Отчество:</b> {currentData.patronymic}</p>
-          <p><b>Номер паспорта:</b> {currentData.pasport_number}</p>
+          <p><b>Номер паспорта:</b> {currentData.passport_number}</p>
           <p><b>Адрес:</b> {currentData.address}</p>
           <p><b>Телефон:</b> {currentData.phone}</p>
         </div>
