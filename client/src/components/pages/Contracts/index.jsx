@@ -48,7 +48,7 @@ class Contracts extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new contract'} formComponent={AddNewContract} actionType={'Add'} closePopup={this.handleOk}/>
+                    <ModalButton tableType={'Add new contract'} formComponent={AddNewContract} actionType={'Добавить'} closePopup={this.handleOk}/>
                 </div>
                 <ViewContracts ref={this.viewRef} onRowClick={this.onClick} />
                 <Modal
@@ -59,7 +59,7 @@ class Contracts extends Component {
                     footer={null}
                 >       
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                        { this.state.viewMode ? 'Редактировать' : 'Вернутся к информации' }
                     </Button>
                     {this.state.viewMode ? <ContractsInfo currentData={this.state.record}/> : <EditContracts closePopup={this.handleOk} currentData={this.state.record}/> }
                 </Modal>

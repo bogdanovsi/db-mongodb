@@ -68,7 +68,7 @@ class Writers extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new writer'} formComponent={AddWriter} actionType={'Add'} closePopup={this.handleOk}/>
+                    <ModalButton tableType={'Add new writer'} formComponent={AddWriter} actionType={'Добавить'} closePopup={this.handleOk}/>
                 </div>
                 <ViewWriters ref={this.viewRef} onRowClick={this.onClick} />
                 <Modal
@@ -78,9 +78,8 @@ class Writers extends Component {
                     onCancel={this.handleCancel}
                     footer={null}
                 >       
-                    
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                        { this.state.viewMode ? 'Редактировать' : 'Вернутся к информации' }
                     </Button>
                     { this.state.viewMode ? <WritersInfo currentData={this.state.record} contract={this.state.contract} booksData={this.state.data} /> : <EditWriter closePopup={this.handleOk} currentData={this.state.record}/>}
                 </Modal>

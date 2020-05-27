@@ -58,7 +58,7 @@ class Orders extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} actionType={'Add'} closePopup={this.handleOk}/>
+                    <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} actionType={'Добавить'} closePopup={this.handleOk}/>
                 </div>
                 <ViewOrders ref={this.viewRef} onRowClick={this.onClick}/>
                 <Modal
@@ -69,7 +69,7 @@ class Orders extends Component {
                     footer={null}
                 >   
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                        { this.state.viewMode ? 'Редактировать' : 'Вернутся к информации' }
                     </Button>
                     { 
                         this.state.viewMode ? 

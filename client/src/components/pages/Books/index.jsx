@@ -51,7 +51,7 @@ class Books extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Add'} closePopup={this.handleOk}/>
+                    <ModalButton tableType={'Add new book'} formComponent={AddBookForm} actionType={'Добавить'} closePopup={this.handleOk}/>
                 </div>
                 <ViewBook ref={this.viewRef} onRowClick={this.onClick} />
                 { this.state.isOpen ?
@@ -63,7 +63,7 @@ class Books extends Component {
                     footer={null}
                 >       
                     <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Edit' : 'Back to info' }
+                        { this.state.viewMode ? 'Редактировать' : 'Вернутся к информации' }
                     </Button>
                     {this.state.viewMode ? <BooksInfo currentData={this.state.record}/> : <EditBook closePopup={this.handleOk} currentData={this.state.record}/> }
                 </Modal> : null }
