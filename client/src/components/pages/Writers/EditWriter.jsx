@@ -127,7 +127,7 @@ const EditWriter = ({currentData, closePopup }) => {
     
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Редактировать
         </Button>
       </Form.Item>
     </Form>

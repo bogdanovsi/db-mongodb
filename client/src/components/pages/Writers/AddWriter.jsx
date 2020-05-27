@@ -127,7 +127,7 @@ const AddWriter = ({ closePopup }) => {
     
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Создать
         </Button>
       </Form.Item>
     </Form>
