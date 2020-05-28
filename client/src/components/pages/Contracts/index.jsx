@@ -6,6 +6,7 @@ import EditContracts from './EditContracts';
 import { Modal } from 'antd';
 import { Button } from 'antd';
 import ContractsInfo from './ContractsInfo';
+import EditButton from '../../EditButton';
 import ViewContracts from './ViewContracts';
 
 class Contracts extends Component {
@@ -58,9 +59,7 @@ class Contracts extends Component {
                     onCancel={this.handleCancel}
                     footer={null}
                 >       
-                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Редактировать' : 'Вернутся к информации' }
-                    </Button>
+                    <EditButton viewMode={this.state.viewMode} onModeChange={this.onModeChange} /> 
                     {this.state.viewMode ? <ContractsInfo currentData={this.state.record}/> : <EditContracts closePopup={this.handleOk} currentData={this.state.record}/> }
                 </Modal>
             </>

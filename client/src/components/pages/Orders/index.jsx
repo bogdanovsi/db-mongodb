@@ -5,6 +5,7 @@ import ModalButton from '../../ModalButton';
 import EditOrders from './EditOrders';
 import OrdersInfo from './OrdersInfo';
 import ViewOrders from './ViewOrders';
+import EditButton from '../../EditButton';
 import { Modal, Button } from 'antd';
 
 class Orders extends Component {
@@ -68,9 +69,7 @@ class Orders extends Component {
                     onCancel={this.handleCancel}
                     footer={null}
                 >   
-                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Редактировать' : 'Вернутся к информации' }
-                    </Button>
+                    <EditButton viewMode={this.state.viewMode} onModeChange={this.onModeChange} /> 
                     { 
                         this.state.viewMode ? 
                             <OrdersInfo currentData={this.state.record} costData={this.state.data}/> : 

@@ -5,6 +5,7 @@ import EditWriter from './EditWriter';
 import WritersInfo from './WritersInfo';
 import ViewWriters from './ViewWriters';
 import ModalButton from '../../ModalButton';
+import EditButton from '../../EditButton';
 import { Modal, Button } from 'antd';
 
 class Writers extends Component {
@@ -19,6 +20,7 @@ class Writers extends Component {
         }
 
         this.viewRef = React.createRef();
+        this.onModeChange = this.onModeChange.bind(this);
     }
 
     onClick = (record) => {
@@ -77,11 +79,11 @@ class Writers extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                     footer={null}
-                >       
-                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Редактировать' : 'Вернуться к информации' }
-                    </Button>
-                    { this.state.viewMode ? <WritersInfo currentData={this.state.record} contract={this.state.contract} booksData={this.state.data} /> : <EditWriter closePopup={this.handleOk} currentData={this.state.record}/>}
+                > 
+                    <EditButton viewMode={this.state.viewMode} onModeChange={this.onModeChange} /> 
+                    { this.state.viewMode ? 
+                        <WritersInfo currentData={this.state.record} contract={this.state.contract} booksData={this.state.data} /> :
+                        <EditWriter closePopup={this.handleOk} currentData={this.state.record}/>}
                 </Modal>
             </>
         )

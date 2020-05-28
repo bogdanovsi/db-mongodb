@@ -31,7 +31,7 @@ router.get('/:writerId/contract', async function(req, res) {
 
     contracts.sort((a, b) => b.created - a.created);
 
-    res.send(contracts[0] ? contracts[0] : null);
+    res.send(contracts[0] ? contracts[0] : []);
 })
 
 router.get('/:writerId/books', async function(req, res) {

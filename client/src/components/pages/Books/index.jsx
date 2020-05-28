@@ -8,6 +8,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
 import BooksInfo from './BooksInfo';
 import ViewBook from './ViewBook';
+import EditButton from '../../EditButton';
 
 
 class Books extends Component {
@@ -61,10 +62,8 @@ class Books extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                     footer={null}
-                >       
-                    <Button type="primary" htmlType="button" onClick={this.onModeChange}>
-                        { this.state.viewMode ? 'Редактировать' : 'Вернутся к информации' }
-                    </Button>
+                >
+                    <EditButton viewMode={this.state.viewMode} onModeChange={this.onModeChange} />
                     {this.state.viewMode ? <BooksInfo currentData={this.state.record}/> : <EditBook closePopup={this.handleOk} currentData={this.state.record}/> }
                 </Modal> : null }
             </>
