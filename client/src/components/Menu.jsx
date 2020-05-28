@@ -37,25 +37,25 @@ class Sidebar extends React.Component {
               defaultOpenKeys={['books']}
               >
               <Menu.Item icon={<BookOutlined />} key="books" onClick={() => this.props.history.push('/books')}>
-                Books
+                Книги
               </Menu.Item>
               <Menu.Item icon={<EditOutlined />} key="writers" onClick={() => this.props.history.push('/writers')}>
-                Writers
+                Писатели
               </Menu.Item>
               <Menu.Item icon={<CopyOutlined />} key="contracts"
                 onClick={() => this.props.history.push('/contracts')}
               >
-                Contracts
+                Контракты
               </Menu.Item>
               <Menu.Item icon={<OrderedListOutlined />} key="orders"
                 onClick={() => this.props.history.push('/orders')}
               >
-                Orders
+                Заказы
               </Menu.Item>
               <Menu.Item icon={<GoldOutlined />} key="customers"
                 onClick={() => this.props.history.push('/customers')}
               >
-                Customers
+                Заказчики
               </Menu.Item>
             </Menu>
         </div>

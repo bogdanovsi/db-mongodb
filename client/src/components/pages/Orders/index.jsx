@@ -58,7 +58,7 @@ class Orders extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new order'} formComponent={AddOrderForm} actionType={'Добавить'} closePopup={this.handleOk}/>
+                    <ModalButton tableType={'Добавить новый заказ'} formComponent={AddOrderForm} actionType={'Добавить'} closePopup={this.handleOk}/>
                 </div>
                 <ViewOrders ref={this.viewRef} onRowClick={this.onClick}/>
                 <Modal
