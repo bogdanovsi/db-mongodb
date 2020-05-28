@@ -24,7 +24,12 @@ router.get('/:writerId/contract', async function(req, res) {
                 as: "writer"
             }
         }
-    ]).limit(1);
+    ])
+    .match({ 
+        'writer._id': mongoose.Types.ObjectId(req.params.writerId)
+    });
+
+    contracts.sort((a, b) => b.created - a.created);
 
     res.send(contracts[0] ? contracts[0] : null);
 })

@@ -19,7 +19,7 @@ const WriterInfo = ({ currentData, booksData, contract }) => {
         </div>
         <div>
           { 
-            expDays(contract) <= 0 ?
+            expDays(contract) <= 0 || (contract.annulment || moment(contract.annulment_date) < moment(new Date())) ?
               <h3>Контракт окончен</h3>
             : <>
               <h3>Контракт</h3>

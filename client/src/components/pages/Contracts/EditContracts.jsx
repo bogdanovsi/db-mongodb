@@ -41,12 +41,15 @@ const EditContracts = ({currentData, closePopup}) => {
   };
 
   const formatDates = (currentData) => {
-    return {
-      ...currentData,
-      created: moment(currentData.created, DATE_FORMAT),
-      expiration_date: moment(currentData.expiration_date, DATE_FORMAT),
-      annulment_date: moment(currentData.annulment_date, DATE_FORMAT)
+    let newData = { ...currentData };
+    newData.created = moment(currentData.created, DATE_FORMAT);
+    newData.expiration_date = moment(currentData.expiration_date, DATE_FORMAT);
+
+    if (currentData.annulment_date) {
+      newData.annulment_date = moment(currentData.annulment_date, DATE_FORMAT)
     }
+
+    return newData;
   }
 
   if(currentData) {
