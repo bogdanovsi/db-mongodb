@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
 import SelectCollection from '../../SelectWriters';
 
+import { REQUER_RULE } from '../../../constants';
+
 const layout = {
   labelCol: {
     span: 8,
@@ -68,12 +70,7 @@ const AddOrderForm = ({ closePopup }) => {
       <Form.Item
         label="Дата создания"
         name="receipt_date"
-        rules={[
-          {
-            required: true,
-            message: 'Please input receipt date',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <DatePicker />
       </Form.Item>
@@ -82,12 +79,7 @@ const AddOrderForm = ({ closePopup }) => {
       <Form.Item
         label="Дата завершения"
         name="completion_date"
-        rules={[
-          {
-            required: true,
-            message: 'Please input completion date',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <DatePicker />
       </Form.Item>
@@ -95,12 +87,7 @@ const AddOrderForm = ({ closePopup }) => {
       <Form.Item
         label="Количество"
         name="oredered_book_copies_number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input order bool copies number',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <InputNumber 
           step={100}

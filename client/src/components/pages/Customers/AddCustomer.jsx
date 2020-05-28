@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
 
+import { REQUER_RULE } from '../../../constants';
+
 const layout = {
   labelCol: {
     span: 8,
@@ -49,12 +51,7 @@ const AddCustomer = ({ closePopup }) => {
       <Form.Item
         label="ФИО заказчика"
         name="customer_name"
-        rules={[
-          {
-            required: true,
-            message: 'Please input name',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -62,12 +59,7 @@ const AddCustomer = ({ closePopup }) => {
       <Form.Item
         label="Адрес"
         name="address"
-        rules={[
-          {
-            required: true,
-            message: 'Please input address',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -75,12 +67,7 @@ const AddCustomer = ({ closePopup }) => {
       <Form.Item
         label="Номер телефона"
         name="phone_number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input phone number',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -89,12 +76,7 @@ const AddCustomer = ({ closePopup }) => {
       <Form.Item
         label="Контактное лицо"
         name="contact_person"
-        rules={[
-          {
-            required: true,
-            message: 'Please input contact person',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>

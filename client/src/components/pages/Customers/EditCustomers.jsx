@@ -3,7 +3,7 @@ import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
 import SelectCollection from '../../SelectWriters';
 import moment from 'moment';
 
-import { DATE_FORMAT } from '../../../constants';
+import { REQUER_RULE } from '../../../constants';
 
 const layout = {
   labelCol: {
@@ -54,12 +54,7 @@ const EditCustomers = ({currentData, closePopup}) => {
       <Form.Item
         label="ФИО заказчика"
         name="customer_name"
-        rules={[
-          {
-            required: true,
-            message: 'Please input name',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -67,12 +62,7 @@ const EditCustomers = ({currentData, closePopup}) => {
       <Form.Item
         label="Адрес"
         name="address"
-        rules={[
-          {
-            required: true,
-            message: 'Please input address',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -80,12 +70,7 @@ const EditCustomers = ({currentData, closePopup}) => {
       <Form.Item
         label="Номер телефона"
         name="phone_number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input phone number',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -94,12 +79,7 @@ const EditCustomers = ({currentData, closePopup}) => {
       <Form.Item
         label="Контактное лицо"
         name="contact_person"
-        rules={[
-          {
-            required: true,
-            message: 'Please input contact person',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>

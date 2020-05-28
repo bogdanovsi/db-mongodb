@@ -3,7 +3,7 @@ import { Form, Input, Checkbox, Button, DatePicker, InputNumber } from 'antd';
 import SelectCollection from '../../SelectWriters';
 import moment from 'moment';
 
-import { DATE_FORMAT } from '../../../constants';
+import { DATE_FORMAT, REQUER_RULE } from '../../../constants';
 
 const layout = {
   labelCol: {
@@ -77,12 +77,7 @@ const EditContracts = ({currentData, closePopup}) => {
       <Form.Item
         label="Номер контракта"
         name="contract_number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input number contract',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <InputNumber 
           step={100}
@@ -93,28 +88,18 @@ const EditContracts = ({currentData, closePopup}) => {
       <Form.Item
         label="Дата создания"
         name="created"
-        rules={[
-          {
-            required: true,
-            message: 'Please input created',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
-        <DatePicker format={dateFormat} />
+        <DatePicker placeholder={"Введите дату"} format={dateFormat} />
       </Form.Item>
 
       
       <Form.Item
         label="Дата истечения"
         name="expiration_date"
-        rules={[
-          {
-            required: true,
-            message: 'Please input expiration date',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
-        <DatePicker format={dateFormat}/>
+        <DatePicker placeholder={"Введите дату"} format={dateFormat}/>
       </Form.Item>
 
       <Form.Item
@@ -129,7 +114,7 @@ const EditContracts = ({currentData, closePopup}) => {
         label="Дата аннулирования"
         name="annulment_date"
       >
-        <DatePicker format={dateFormat} />
+        <DatePicker placeholder={"Введите дату"} format={dateFormat} />
       </Form.Item>
     
       <Form.Item {...tailLayout}>

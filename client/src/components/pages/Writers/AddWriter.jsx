@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
 
+import { REQUER_RULE } from '../../../constants';
+
 const layout = {
   labelCol: {
     span: 8,
@@ -50,12 +52,7 @@ const AddWriter = ({ closePopup }) => {
       <Form.Item
         label="Фамилия"
         name="surname"
-        rules={[
-          {
-            required: true,
-            message: 'Please input Surname',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -63,12 +60,7 @@ const AddWriter = ({ closePopup }) => {
       <Form.Item
         label="Имя"
         name="name"
-        rules={[
-          {
-            required: true,
-            message: 'Please input name',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -76,12 +68,7 @@ const AddWriter = ({ closePopup }) => {
       <Form.Item
         label="Номер паспорта"
         name="passport_number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input Passport number',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -89,12 +76,7 @@ const AddWriter = ({ closePopup }) => {
       <Form.Item
         label="Отчество"
         name="patronymic"
-        rules={[
-          {
-            required: true,
-            message: 'Please input patronymic',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -102,12 +84,7 @@ const AddWriter = ({ closePopup }) => {
       <Form.Item
         label="Адрес"
         name="address"
-        rules={[
-          {
-            required: true,
-            message: 'Please input adress',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>
@@ -115,12 +92,7 @@ const AddWriter = ({ closePopup }) => {
       <Form.Item
         label="Телефон"
         name="phone"
-        rules={[
-          {
-            required: true,
-            message: 'Please input phone',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <Input />
       </Form.Item>

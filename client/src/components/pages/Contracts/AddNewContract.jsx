@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Checkbox, Button, DatePicker, InputNumber, Select } from 'antd';
 import SelectCollection from '../../SelectWriters';
 
+import { REQUER_RULE } from '../../../constants';
 const { Option } = Select;
 
 const layout = {
@@ -78,28 +79,18 @@ class AddNewContract extends Component {
           <Form.Item
             label="Дата создания"
             name="created"
-            rules={[
-              {
-                required: true,
-                message: 'Please input created',
-              },
-            ]}
+            rules={[ REQUER_RULE ]}
           >
-            <DatePicker />
+            <DatePicker placeholder={"Введите дату"} />
           </Form.Item>
     
           
           <Form.Item
             label="Дата истечения"
             name="expiration_date"
-            rules={[
-              {
-                required: true,
-                message: 'Please input expiration date',
-              },
-            ]}
+            rules={[ REQUER_RULE ]}
           >
-            <DatePicker />
+            <DatePicker placeholder={"Введите дату"} />
           </Form.Item>
     
           <Form.Item
@@ -114,7 +105,7 @@ class AddNewContract extends Component {
             label="Дата аннулирования"
             name="annulment_date"
           >
-            <DatePicker />
+            <DatePicker placeholder={"Введите дату"} />
           </Form.Item>
         
           <Form.Item {...tailLayout}>

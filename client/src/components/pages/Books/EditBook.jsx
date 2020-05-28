@@ -3,7 +3,7 @@ import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
 import SelectCollection from '../../SelectWriters';
 import moment from 'moment';
 
-import { DATE_FORMAT } from '../../../constants';
+import { DATE_FORMAT, REQUER_RULE } from '../../../constants';
 
 const layout = {
   labelCol: {
@@ -69,12 +69,7 @@ const EditBook = ({currentData, closePopup}) => {
     <Form.Item
       label="Название книги"
       name="name"
-      rules={[
-        {
-          required: true,
-          message: 'Please input book name',
-        },
-      ]}
+      rules={[ REQUER_RULE ]}
     >
       <Input />
     </Form.Item>
@@ -82,12 +77,7 @@ const EditBook = ({currentData, closePopup}) => {
     <Form.Item
       label="Шифр книги"
       name="book_chiper"
-      rules={[
-        {
-          required: true,
-          message: 'Please input book chiper',
-        },
-      ]}
+      rules={[ REQUER_RULE ]}
     >
       <Input />
     </Form.Item>
@@ -95,12 +85,7 @@ const EditBook = ({currentData, closePopup}) => {
     <Form.Item
       label="Тираж"
       name="circulation"
-      rules={[
-        {
-          required: true,
-          message: 'Please input circulation',
-        },
-      ]}
+      rules={[ REQUER_RULE ]}
     >
       <InputNumber min={0} step={100} />
     </Form.Item>
@@ -108,25 +93,15 @@ const EditBook = ({currentData, closePopup}) => {
     <Form.Item
       label="Дата публикации"
       name="publication_date"
-      rules={[
-        {
-          required: true,
-          message: 'Please input publication date',
-        },
-      ]}
+      rules={[ REQUER_RULE ]}
     >
-      <DatePicker />
+      <DatePicker placeholder={"Введите дату"} />
     </Form.Item>
 
     <Form.Item
       label="Цена изготовления"
       name="cost_price"
-      rules={[
-        {
-          required: true,
-          message: 'Please input cost price',
-        },
-      ]}
+      rules={[ REQUER_RULE ]}
     >
       <InputNumber 
         step={100}
@@ -137,12 +112,7 @@ const EditBook = ({currentData, closePopup}) => {
     <Form.Item
       label="Цена продажи"
       name="selling_price"
-      rules={[
-        {
-          required: true,
-          message: 'Please input selling price',
-        },
-      ]}
+      rules={[ REQUER_RULE ]}
     >
       <InputNumber 
         step={100}
@@ -153,12 +123,7 @@ const EditBook = ({currentData, closePopup}) => {
     <Form.Item
       label="Гонорар"
       name="fee"
-      rules={[
-        {
-          required: true,
-          message: 'Please input fee',
-        },
-      ]}
+      rules={[ REQUER_RULE ]}
     >
       <InputNumber 
         step={100}

@@ -3,7 +3,7 @@ import { Form, Button, DatePicker, InputNumber } from 'antd';
 import SelectCollection from '../../SelectWriters';
 import moment from 'moment';
 
-import { DATE_FORMAT } from '../../../constants';
+import { DATE_FORMAT, REQUER_RULE } from '../../../constants';
 
 const layout = {
   labelCol: {
@@ -82,38 +82,23 @@ const EditOrders = ({currentData, closePopup}) => {
       <Form.Item
         label="Дата создания"
         name="receipt_date"
-        rules={[
-          {
-            required: true,
-            message: 'Please input receipt date',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       > 
-        <DatePicker />
+        <DatePicker placeholder={"Введите дату"} />
       </Form.Item>
       
       <Form.Item
         label="Дата завершения"
         name="completion_date"
-        rules={[
-          {
-            required: true,
-            message: 'Please input completion date',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
-        <DatePicker />
+        <DatePicker placeholder={"Введите дату"} />
       </Form.Item>
 
       <Form.Item
         label="Количество"
         name="oredered_book_copies_number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input order bool copies number',
-          },
-        ]}
+        rules={[ REQUER_RULE ]}
       >
         <InputNumber 
           step={100}

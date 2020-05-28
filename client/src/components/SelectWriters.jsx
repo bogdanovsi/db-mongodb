@@ -31,7 +31,7 @@ class SelectCollection extends Component {
                 rules={[
                     {
                         required: true,
-                        message: 'Please input number contract',
+                        message: 'Поле обязательно для заполнения',
                     }
                 ]}
                 initialValues={this.props.value}
