@@ -90,7 +90,7 @@ class AddNewContract extends Component {
     
           
           <Form.Item
-            label="Дата истичения"
+            label="Дата истечения"
             name="expiration_date"
             rules={[
               {

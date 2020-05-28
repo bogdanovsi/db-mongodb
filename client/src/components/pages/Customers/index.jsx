@@ -48,7 +48,7 @@ class Customers extends Component {
         return (
             <>
                 <div className="table-btns-row">
-                    <ModalButton tableType={'Add new customer'} formComponent={AddCustomer} actionType={'Добавить'} closePopup={this.handleOk}/>
+                    <ModalButton tableType={'Добавить нового заказчика'} formComponent={AddCustomer} actionType={'Добавить'} closePopup={this.handleOk}/>
                 </div>
                 <ViewCustomers ref={this.viewRef} onRowClick={this.onClick}/>
                 <Modal

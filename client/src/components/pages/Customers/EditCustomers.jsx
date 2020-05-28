@@ -65,7 +65,7 @@ const EditCustomers = ({currentData, closePopup}) => {
       </Form.Item>
 
       <Form.Item
-        label="Адресс"
+        label="Адрес"
         name="address"
         rules={[
           {
@@ -92,7 +92,7 @@ const EditCustomers = ({currentData, closePopup}) => {
 
       
       <Form.Item
-        label="Контактоне лицо"
+        label="Контактное лицо"
         name="contact_person"
         rules={[
           {
